@@ -25,3 +25,11 @@ C:\Users\asharma\Desktop\WorkingFilters\DALCore\Core.Contracts\obj\Debug\netcore
 C:\Users\asharma\Desktop\WorkingFilters\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.dll
 C:\Users\asharma\Desktop\WorkingFilters\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.pdb
 C:\Users\asharma\Desktop\WorkingFilters\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.csprojResolveAssemblyReference.cache
+C:\Users\ggabbi\Desktop\version8\WorkingFilters\DALCore\Core.Contracts\bin\Debug\netcoreapp2.1\Core.Contracts.deps.json
+C:\Users\ggabbi\Desktop\version8\WorkingFilters\DALCore\Core.Contracts\bin\Debug\netcoreapp2.1\Core.Contracts.dll
+C:\Users\ggabbi\Desktop\version8\WorkingFilters\DALCore\Core.Contracts\bin\Debug\netcoreapp2.1\Core.Contracts.pdb
+C:\Users\ggabbi\Desktop\version8\WorkingFilters\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\ggabbi\Desktop\version8\WorkingFilters\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.AssemblyInfoInputs.cache
+C:\Users\ggabbi\Desktop\version8\WorkingFilters\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.AssemblyInfo.cs
+C:\Users\ggabbi\Desktop\version8\WorkingFilters\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.dll
+C:\Users\ggabbi\Desktop\version8\WorkingFilters\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.pdb

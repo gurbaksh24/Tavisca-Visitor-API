@@ -19,8 +19,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DALCore.Controllers
 {
-
-    [ApiController]
     public class CompareFacesController : ControllerBase
     {
         IFace faceManager;
@@ -28,27 +26,21 @@ namespace DALCore.Controllers
         {
             faceManager = _faceManager;
         }
-        [Microsoft.AspNetCore.Mvc.HttpGet]
-        [Microsoft.AspNetCore.Mvc.Route("api/Guard")]
-        public async System.Threading.Tasks.Task<string> CompareFacesAsync()
+        [Microsoft.AspNetCore.Mvc.HttpPut]
+        [Microsoft.AspNetCore.Mvc.Route("api/CompareFaces")]
+        public async System.Threading.Tasks.Task<string> CompareFacesAsync([Microsoft.AspNetCore.Mvc.FromBody] string collectionName)
         {
-            GlobalConfiguration.Configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+            //GlobalConfiguration.Configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
             ForgotPasswordManager obj = new ForgotPasswordManager();
             try
             {
-                return await faceManager.CompareFacesAsync();
+                return await faceManager.CompareFacesAsync(collectionName);
             }
             catch (Exception exception)
             {
-                return "Error";
+                return exception.StackTrace;
             }
         }
-        [Microsoft.AspNetCore.Mvc.HttpPut]
-        [Microsoft.AspNetCore.Mvc.Route("api/GuardPut")]
-        public void AddANewFace()
-        {
-            FaceManager faceManager = new FaceManager();
 
-        }
     }
 }

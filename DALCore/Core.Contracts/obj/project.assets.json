@@ -3338,10 +3338,11 @@
       ]
     },
     "System.Data.Common/4.3.0": {
-      "sha512": "lm6E3T5u7BOuEH0u18JpbJHxBfOJPuCyl4Kg1RH10ktYLp5uEEE1xKrHW56/We4SnZpGAuCc9N0MJpSDhTHZGQ==",
+      "sha512": "OGX4ifHI67s/2KRrXGMmEjmszCptbhWS4BieBdiBPl/8pn0A1xPMx0Gn0dKK0zKtEaelYNh5M7M5lCZL0EA4eA==",
       "type": "package",
       "path": "system.data.common/4.3.0",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -6516,26 +6517,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\asharma\\.nuget\\packages\\": {},
+    "C:\\Users\\ggabbi\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\asharma\\Desktop\\WorkingFilters\\DALCore\\Core.Contracts\\Core.Contracts.csproj",
+      "projectUniqueName": "C:\\Users\\ggabbi\\Desktop\\version8\\WorkingFilters\\DALCore\\Core.Contracts\\Core.Contracts.csproj",
       "projectName": "Core.Contracts",
-      "projectPath": "C:\\Users\\asharma\\Desktop\\WorkingFilters\\DALCore\\Core.Contracts\\Core.Contracts.csproj",
-      "packagesPath": "C:\\Users\\asharma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asharma\\Desktop\\WorkingFilters\\DALCore\\Core.Contracts\\obj\\",
+      "projectPath": "C:\\Users\\ggabbi\\Desktop\\version8\\WorkingFilters\\DALCore\\Core.Contracts\\Core.Contracts.csproj",
+      "packagesPath": "C:\\Users\\ggabbi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ggabbi\\Desktop\\version8\\WorkingFilters\\DALCore\\Core.Contracts\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\asharma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ggabbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6561,37 +6559,37 @@
         "dependencies": {
           "AWSSDK.Core": {
             "target": "Package",
-            "version": "3.3.29.2"
+            "version": "[3.3.29.2, )"
           },
-          "System.Security.Cryptography.Algorithms": {
+          "AWSSDK.Rekognition": {
             "target": "Package",
-            "version": "4.3.1"
+            "version": "[3.3.11.10, )"
           },
-          "System.Security.Cryptography.ProtectedData": {
+          "EPPlus.Core": {
             "target": "Package",
-            "version": "4.5.0"
+            "version": "[1.5.4, )"
           },
-          "System.Security.Cryptography.X509Certificates": {
+          "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "4.3.2"
+            "version": "[2.1.4, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1",
+            "version": "[2.1.0, )",
             "autoReferenced": true
           },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
+          "System.Security.Cryptography.Algorithms": {
             "target": "Package",
-            "version": "2.1.4"
+            "version": "[4.3.1, )"
           },
-          "AWSSDK.Rekognition": {
+          "System.Security.Cryptography.ProtectedData": {
             "target": "Package",
-            "version": "3.3.11.10"
+            "version": "[4.5.0, )"
           },
-          "EPPlus.Core": {
+          "System.Security.Cryptography.X509Certificates": {
             "target": "Package",
-            "version": "1.5.4"
+            "version": "[4.3.2, )"
           }
         },
         "imports": [

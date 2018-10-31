@@ -1,5 +1,7 @@
-﻿using Amazon.Rekognition;
+﻿using Amazon;
+using Amazon.Rekognition;
 using Amazon.Rekognition.Model;
+using Amazon.Runtime;
 using DALCore.Models;
 using System;
 using System.Linq;
@@ -8,14 +10,17 @@ namespace FaceService
 {
     public class FaceManager : IFace
     {
-        public async System.Threading.Tasks.Task<string> CompareFacesAsync()
+        public async System.Threading.Tasks.Task<string> CompareFacesAsync(string collectionName)
         {
             try
             {
-                AmazonRekognitionClient amazonRekognitionClient = new AmazonRekognitionClient();
+                string accessKeyId = "AKIAJM4TC3NLKAVPLCFQ";
+                string secretAccessKey = "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";
+                BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(accessKeyId, secretAccessKey);
+                AmazonRekognitionClient amazonRekognitionClient = new AmazonRekognitionClient(basicAWSCredentials);
                 var response = await amazonRekognitionClient.SearchFacesByImageAsync(new SearchFacesByImageRequest
                 {
-                    CollectionId = "sample",
+                    CollectionId = collectionName,
                     FaceMatchThreshold = 80,
                     Image = new Image
                     {
@@ -38,7 +43,7 @@ namespace FaceService
             }
             catch (Exception exception)
             {
-                return "Error";
+                return exception.StackTrace;
             }
         }
 
@@ -47,7 +52,7 @@ namespace FaceService
             AmazonRekognitionClient amazonRekognitionClient = new AmazonRekognitionClient();
             var response = amazonRekognitionClient.IndexFacesAsync(new IndexFacesRequest
             {
-                CollectionId = "sample",
+                CollectionId = "visitors",
                 ExternalImageId = imageId,
                 Image = new Image
                 {
