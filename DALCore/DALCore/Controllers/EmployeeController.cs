@@ -26,9 +26,9 @@ namespace DALCore.Controllers
         }
         [HttpPut]
         [Route("api/[controller]/EditEmployee")]
-        public void EditExistingEmployee([FromBody]Employees Employee)
+        public string EditExistingEmployee([FromBody]Employees Employee)
         {
-            employee.EditEmployee(Employee);
+            return employee.EditEmployee(Employee);
         }
         [HttpPost]
         [Route("api/[controller]/AddEmployee")]
@@ -77,6 +77,12 @@ namespace DALCore.Controllers
         public List<EmployeeLogs> EmployeeLogsByDateAndName([FromBody]DateAndName UserInput)
         {
             return employee.GetEmployeeLogsByNameAndDate(UserInput.nameOfVisitor, UserInput.fromDate, UserInput.toDate, UserInput.fromTime, UserInput.toTime);
+        }
+        [HttpPut]
+        [Route("api/[controller]/LogExit")]
+        public string LogEmployeeExitTime([FromBody]SearchFilter UserId)
+        {
+            return employee.LogEmployeeExit(UserId.UserInput);
         }
     }
 }

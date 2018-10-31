@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeService", "Employee
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQLDatabase", "SQLDatabase\SQLDatabase.csproj", "{AF25A02A-CD80-4B28-85C5-8901D3936250}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceService", "FaceService\FaceService.csproj", "{2B3C3651-A4B3-4B60-AD37-47AC31899650}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceService", "FaceService\FaceService.csproj", "{2B3C3651-A4B3-4B60-AD37-47AC31899650}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminsService", "AdminsService\AdminsService.csproj", "{AD0E9493-6D29-4514-9F2E-1026BBAE8580}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{2B3C3651-A4B3-4B60-AD37-47AC31899650}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B3C3651-A4B3-4B60-AD37-47AC31899650}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B3C3651-A4B3-4B60-AD37-47AC31899650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD0E9493-6D29-4514-9F2E-1026BBAE8580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD0E9493-6D29-4514-9F2E-1026BBAE8580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD0E9493-6D29-4514-9F2E-1026BBAE8580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD0E9493-6D29-4514-9F2E-1026BBAE8580}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{79B32723-7A2D-4661-86AE-89FF8D5B9049} = {196B19B2-AE3E-4481-BED8-BE36E1CED9D5}
 		{D6A00824-A671-47FD-923A-D416FB9C2FA2} = {196B19B2-AE3E-4481-BED8-BE36E1CED9D5}
 		{2B3C3651-A4B3-4B60-AD37-47AC31899650} = {196B19B2-AE3E-4481-BED8-BE36E1CED9D5}
+		{AD0E9493-6D29-4514-9F2E-1026BBAE8580} = {196B19B2-AE3E-4481-BED8-BE36E1CED9D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DFC4CFF5-9117-439D-BA58-3D7605112C48}

@@ -68,7 +68,7 @@ namespace FaceService
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 Visitors Visitor = entity.Visitors.Where(entry => entry.VisitorId == Id).FirstOrDefault();
                 return Visitor.NameOfVisitor;
             }

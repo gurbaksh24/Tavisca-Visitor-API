@@ -19,6 +19,7 @@ namespace Core.Contracts
         public TimeSpan LogoutTime { get; set; }
         public DateTime LoginDate { get; set; }
         public DateTime LogoutDate { get; set; }
+        public string Error { get; set; }
 
     }
 }
