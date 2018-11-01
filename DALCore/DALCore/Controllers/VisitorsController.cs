@@ -96,5 +96,11 @@ namespace DALCore.Controllers
         {           
             return visitor.SaveVisitorExitTime(Id.userId);
         }
+        [HttpPost]
+        [Route("api/[controller]/AddVisitorLog")]
+        public string AddNewVisitorLogById([FromBody]NewVisitorFormData VisitorData)
+        {
+            return visitor.AddNewVisitor(VisitorData);
+        }
     }
 }

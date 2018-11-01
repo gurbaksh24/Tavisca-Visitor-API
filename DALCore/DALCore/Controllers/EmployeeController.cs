@@ -48,6 +48,12 @@ namespace DALCore.Controllers
         {
             return employee.GetEmployeeDetailsById(userId.UserInput);
         }
+        [HttpPut]
+        [Route("api/[controller]/EmployeeLogById")]
+        public List<EmployeeLogs> GetEmployeeLogsById([FromBody]SearchFilter userId)
+        {
+            return employee.GetEmployeeLogsById(userId.UserInput);
+        }
         [HttpGet]
         [Route("api/[controller]/EmployeeLogs")]
         public List<EmployeeLogs> AllEmployeeLogs()

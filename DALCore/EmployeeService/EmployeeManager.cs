@@ -18,7 +18,7 @@ namespace EmployeeService
                 List<Employees> AllEmployees = entity.Employees.ToList<Employees>();
                 return AllEmployees;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 List<Employees> error = new List<Employees>();
                 error[0].EmployeeId = "Could not get All Employees! Please Contact Admin" + ex.StackTrace;
@@ -45,7 +45,7 @@ namespace EmployeeService
                 entity.SaveChanges();
                 return "Employee edited successfully";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ("Could not edit Employees! Please Contact Admin" + ex.StackTrace);
             }
@@ -91,7 +91,7 @@ namespace EmployeeService
                 Employees MatchingEmployee = entity.Employees.Where(x => x.EmployeeId == employeeID).FirstOrDefault();
                 return MatchingEmployee.EmployeeName;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return "Could not get Employee by Id! Please Contact Admin" + ex.StackTrace;
             }
@@ -104,10 +104,10 @@ namespace EmployeeService
                 Employees MatchingEmployee = entity.Employees.Where(x => x.EmployeeId == employeeID).FirstOrDefault();
                 return MatchingEmployee;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Employees error = new Employees();
-                error.EmployeeId= "Could not get All Employee details byy ID! Please Contact Admin" + ex.StackTrace;
+                error.EmployeeId = "Could not get All Employee details byy ID! Please Contact Admin" + ex.StackTrace;
                 return error;
             }
         }
@@ -119,7 +119,7 @@ namespace EmployeeService
                 List<EmployeeLogs> AllEmployeeLogs = entity.EmployeeLogs.ToList<EmployeeLogs>();
                 return AllEmployeeLogs;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 List<EmployeeLogs> error = new List<EmployeeLogs>();
                 error[0].EmployeeId = "Could not get All Employee logs! Please Contact Admin" + ex.StackTrace;
@@ -140,7 +140,7 @@ namespace EmployeeService
                 entity.EmployeeLogs.Add(NewLog);
                 entity.SaveChanges();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Could not Add Employee ! Please Contact Admin" + ex.StackTrace);
             }
@@ -156,7 +156,7 @@ namespace EmployeeService
                 entity.SaveChanges();
                 return "Exit time successfully recorder";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return "Unable to log exit time";
             }
@@ -170,7 +170,7 @@ namespace EmployeeService
                 List<EmployeeLogs> AllLogsByName = entity.EmployeeLogs.Where(x => x.EmployeeName == EmployeeName).ToList<EmployeeLogs>();
                 return AllLogsByName;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 List<EmployeeLogs> error = new List<EmployeeLogs>();
                 error[0].EmployeeId = "Could not get All Employee logs by Name! Please Contact Admin" + ex.StackTrace;
@@ -182,10 +182,10 @@ namespace EmployeeService
             try
             {
                 var entity = new DatabaseContext();
-                List<EmployeeLogs> AllLogsBetweenDateAndTime = entity.EmployeeLogs.Where(entry => entry.DateOfVisit >= Convert.ToDateTime(fromDate).Date && entry.DateOfVisit <= Convert.ToDateTime(toDate).Date && entry.TimeOfEntry>=Convert.ToDateTime(fromTime).TimeOfDay && entry.TimeOfExit<=Convert.ToDateTime(toTime).TimeOfDay).ToList<EmployeeLogs>();
+                List<EmployeeLogs> AllLogsBetweenDateAndTime = entity.EmployeeLogs.Where(entry => entry.DateOfVisit >= Convert.ToDateTime(fromDate).Date && entry.DateOfVisit <= Convert.ToDateTime(toDate).Date && entry.TimeOfEntry >= Convert.ToDateTime(fromTime).TimeOfDay && entry.TimeOfExit <= Convert.ToDateTime(toTime).TimeOfDay).ToList<EmployeeLogs>();
                 return AllLogsBetweenDateAndTime;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 List<EmployeeLogs> error = new List<EmployeeLogs>();
                 error[0].EmployeeId = "Could not get All Employee logs by Dates! Please Contact Admin" + ex.StackTrace;
@@ -197,14 +197,29 @@ namespace EmployeeService
             try
             {
                 var entity = new DatabaseContext();
-                List<EmployeeLogs> AllLogsByNameBetweenDateAndTime = entity.EmployeeLogs.Where(entry =>entry.EmployeeName==nameOfEmployee && entry.DateOfVisit >= Convert.ToDateTime(fromDate).Date && entry.DateOfVisit <= Convert.ToDateTime(toDate).Date && entry.TimeOfEntry >= Convert.ToDateTime(fromTime).TimeOfDay && entry.TimeOfExit <= Convert.ToDateTime(toTime).TimeOfDay).ToList<EmployeeLogs>();
+                List<EmployeeLogs> AllLogsByNameBetweenDateAndTime = entity.EmployeeLogs.Where(entry => entry.EmployeeName == nameOfEmployee && entry.DateOfVisit >= Convert.ToDateTime(fromDate).Date && entry.DateOfVisit <= Convert.ToDateTime(toDate).Date && entry.TimeOfEntry >= Convert.ToDateTime(fromTime).TimeOfDay && entry.TimeOfExit <= Convert.ToDateTime(toTime).TimeOfDay).ToList<EmployeeLogs>();
                 return AllLogsByNameBetweenDateAndTime;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 List<EmployeeLogs> error = new List<EmployeeLogs>();
                 error[0].EmployeeId = "Could not get All Employee logs by Dates and name! Please Contact Admin" + ex.StackTrace;
                 return error;
+            }
+        }
+        public List<EmployeeLogs> GetEmployeeLogsById(string EmployeeId)
+        {
+            try
+            {
+                var entity = new DatabaseContext();
+                List<EmployeeLogs> MatchingLogs = entity.EmployeeLogs.Where(entry => entry.EmployeeId == EmployeeId).ToList<EmployeeLogs>();
+                return MatchingLogs;
+            }
+            catch (Exception ex)
+            {
+                List<EmployeeLogs> errror = new List<EmployeeLogs>();
+                errror[0].EmployeeId = "Unable to fetch logs by Id! " + ex.StackTrace;
+                return errror;
             }
         }
     }

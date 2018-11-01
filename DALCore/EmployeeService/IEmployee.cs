@@ -18,5 +18,6 @@ namespace EmployeeService
         List<EmployeeLogs> GetEmployeeLogsByNameAndDate(string nameOfEmployee, string fromDate, string toDate, string fromTime, string toTime);
         Employees GetEmployeeDetailsById(string UserId);
         string LogEmployeeExit(string EmplpyeeId);
+        List<EmployeeLogs> GetEmployeeLogsById(string EmployeeId);
     }
 }

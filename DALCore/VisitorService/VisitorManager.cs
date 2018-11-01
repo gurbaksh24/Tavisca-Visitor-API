@@ -300,7 +300,7 @@ namespace VisitorService
                 return "unable to add visitor";
             }
         }
-        public void AddNewVisitorLog(NewVisitorFormData VisitorData)
+        public string AddNewVisitorLog(NewVisitorFormData VisitorData)
         {
             try
             {
@@ -318,10 +318,11 @@ namespace VisitorService
                 newLog.PurposeOfVisit = VisitorData.purposeOfVisit;
                 entity.VisitorsLogs.Add(newLog);
                 entity.SaveChanges();
+                return "Log successfully saved";
             }
             catch(Exception ex)
             {
-                throw new Exception("Could not Add visitor. Please try again" + ex.StackTrace);
+                return "Could not Add visitor log. Please try again" + ex.StackTrace;
             }
         }
         public List<MatchingSubstring> AllMatchingEmployeeNames(string userInput)

@@ -22,6 +22,7 @@ namespace VisitorService
         int SendAndReturnOtp(string ContactNo);
         string GetVisitorNameById(int Id);
         string SaveVisitorExitTime(int Id);
+        string AddNewVisitorLog(NewVisitorFormData VisitorData);
     }
 
 }
