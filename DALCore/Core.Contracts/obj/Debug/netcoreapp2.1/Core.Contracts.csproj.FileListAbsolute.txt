@@ -42,3 +42,12 @@ C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\Core.Contracts\obj\Debug\ne
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.AssemblyInfo.cs
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.dll
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\Core.Contracts\bin\Debug\netcoreapp2.1\Core.Contracts.deps.json
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\Core.Contracts\bin\Debug\netcoreapp2.1\Core.Contracts.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\Core.Contracts\bin\Debug\netcoreapp2.1\Core.Contracts.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.AssemblyInfoInputs.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.AssemblyInfo.cs
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\Core.Contracts\obj\Debug\netcoreapp2.1\Core.Contracts.csprojAssemblyReference.cache

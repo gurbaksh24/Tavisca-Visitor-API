@@ -16,6 +16,7 @@ using System.Security.AccessControl;
 using UserService;
 using FaceService;
 using Microsoft.AspNetCore.Mvc;
+using Core.Contracts.Models;
 
 namespace DALCore.Controllers
 {
@@ -28,17 +29,16 @@ namespace DALCore.Controllers
         }
         [Microsoft.AspNetCore.Mvc.HttpPut]
         [Microsoft.AspNetCore.Mvc.Route("api/CompareFaces")]
-        public async System.Threading.Tasks.Task<string> CompareFacesAsync([Microsoft.AspNetCore.Mvc.FromBody] string collectionName)
+        public async System.Threading.Tasks.Task<string> CompareFacesAsync([Microsoft.AspNetCore.Mvc.FromBody] CollectionName collectionId)
         {
-            //GlobalConfiguration.Configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
             ForgotPasswordManager obj = new ForgotPasswordManager();
             try
             {
-                return await faceManager.CompareFacesAsync(collectionName);
+                return await faceManager.CompareFacesAsync(collectionId.CollectionId);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                return exception.StackTrace;
+                return "Exception Occurred";
             }
         }
 

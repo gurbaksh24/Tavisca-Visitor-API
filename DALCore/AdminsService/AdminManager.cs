@@ -7,11 +7,17 @@ using System;
 using System.Collections.Generic;
 using VisitorService;
 using System.Linq;
+using Microsoft.Extensions.Options;
 
 namespace AdminsService
 {
     public class AdminManager : IAdmin
     {
+        private  AppSetting  _appsettings { get; set; }
+        public AdminManager(IOptions<AppSetting> appSettings)
+        {
+            _appsettings = appSettings.Value;
+        }
         public List<AllLogs> GetAllLogs()
         {
             try

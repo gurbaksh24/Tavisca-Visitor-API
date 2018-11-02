@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using FaceService;
 using AdminsService;
+using Core.Contracts;
 
 namespace DALCore
 {
@@ -22,11 +23,15 @@ namespace DALCore
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
+        public IConfiguration Configuration { get; }  /// <summary>
+        ///  
+        /// </summary>
+        /// <param name="services"></param>
+         
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<AppSetting>(Configuration.GetSection("AppSetting"));
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
@@ -41,6 +46,8 @@ namespace DALCore
             services.AddTransient<IEmployee, EmployeeManager>();
             services.AddTransient<IFace, FaceManager>();
             services.AddTransient<IAdmin, AdminManager>();
+
+            //services.Configure<ConnectionStrings>(Configuration.GetConnectionString("ConnectionStrings"))
 
             //services.AddDbContext<VisitorsDatabaseContext>(options =>
             //                    options.UseSqlServer(Configuration.GetConnectionString("TaviscaVisitorDatabase")));

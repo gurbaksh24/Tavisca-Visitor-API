@@ -56,3 +56,15 @@ C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netc
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netcoreapp2.1\GuardService.AssemblyInfo.cs
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netcoreapp2.1\GuardService.dll
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netcoreapp2.1\GuardService.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\bin\Debug\netcoreapp2.1\GuardService.deps.json
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\bin\Debug\netcoreapp2.1\GuardService.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\bin\Debug\netcoreapp2.1\GuardService.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\bin\Debug\netcoreapp2.1\Core.Contracts.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\bin\Debug\netcoreapp2.1\Core.Contracts.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netcoreapp2.1\GuardService.csprojAssemblyReference.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netcoreapp2.1\GuardService.csproj.CoreCompileInputs.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netcoreapp2.1\GuardService.AssemblyInfoInputs.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netcoreapp2.1\GuardService.AssemblyInfo.cs
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netcoreapp2.1\GuardService.csproj.CopyComplete
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netcoreapp2.1\GuardService.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\GuardService\obj\Debug\netcoreapp2.1\GuardService.pdb

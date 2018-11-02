@@ -67,9 +67,9 @@ namespace DALCore.Controllers
         }
         [HttpPost]
         [Route("api/[controller]/AddNewVisitor")]
-        public string NewVisitorEntry([FromBody]NewVisitorFormData newVisitor)
+        public async System.Threading.Tasks.Task<string> NewVisitorEntryAsync([FromBody]NewVisitorFormData newVisitor)
         {
-            return visitor.AddNewVisitor(newVisitor);
+            return await visitor.AddNewVisitorAsync(newVisitor);
         }
         [HttpPut]
         [Route("api/[controller]/EmployeesMatchingSubstring")]
@@ -91,6 +91,12 @@ namespace DALCore.Controllers
             return visitor.GetVisitorNameById(Id.userId);
         }
         [HttpPut]
+        [Route("api/[controller]/GetVisitorDetailsById")]
+        public string VisitorDetailsById([FromBody]UserId Id)
+        {
+            return visitor.GetVisitorNameById(Id.userId);
+        }
+        [HttpPut]
         [Route("api/[controller]/SaveExitTime")]
         public string SavingExitTime([FromBody]UserId Id)
         {           
@@ -98,9 +104,9 @@ namespace DALCore.Controllers
         }
         [HttpPost]
         [Route("api/[controller]/AddVisitorLog")]
-        public string AddNewVisitorLogById([FromBody]NewVisitorFormData VisitorData)
-        {
-            return visitor.AddNewVisitor(VisitorData);
+        public bool AddNewVisitorLog([FromBody]ExistingVisitorEntryForm VisitorData)
+        {   
+            return visitor.AddExistingVisitorLog(VisitorData);
         }
     }
 }

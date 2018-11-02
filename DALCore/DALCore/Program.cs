@@ -12,13 +12,17 @@ namespace DALCore
 {
     public class Program
     {
+        static IConfiguration config { get; } = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", false, false).Build();
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
         }
 
+        //configuration declare  and add json file here
+
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            .UseConfiguration(config)
+                .UseStartup<Startup>();  // Required to send configuration here
     }
 }

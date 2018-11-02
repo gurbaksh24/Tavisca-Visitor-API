@@ -3495,7 +3495,7 @@
       ]
     },
     "Microsoft.AspNet.WebApi.Core/5.2.6": {
-      "sha512": "QMFixs/MvKZXjfUbV0gXxF85LKi+keu/zJKv13upg/JlcxJ+wdLSYzyHO/sgPPUuFVstgndK6Zt3VduWeqFmHQ==",
+      "sha512": "8UiHr2VkrpwDCwXaXea8pNaR2zvJ3HYwsmWmkTFY1lEB2u4eFnL+aM+/GJK91Ud3KQ7Xse+Vysvj/UalM3IlmA==",
       "type": "package",
       "path": "microsoft.aspnet.webapi.core/5.2.6",
       "files": [
@@ -3683,10 +3683,11 @@
       ]
     },
     "Microsoft.Bcl.Build/1.0.14": {
-      "sha512": "cDLKSvNvRa519hplsbSoYqO69TjdDIhfjtKUM0g20/nVROoWsGav9KCI9HtnGjLmdV1+TcUUDhbotcllibjPEA==",
+      "sha512": "57EJ/NGEDQkIlQs9aO4adkYeaHMdg+pn5D8RfO1ZXQJgHOjTfGH+kWfppEaD6cg0PE2kGn9/GsACcu2LLyJM0g==",
       "type": "package",
       "path": "microsoft.bcl.build/1.0.14",
       "files": [
+        ".signature.p7s",
         "License-Stable.rtf",
         "content/net40/_._",
         "content/netcore45/_._",
@@ -3954,11 +3955,10 @@
       ]
     },
     "Microsoft.Extensions.ObjectPool/2.0.0": {
-      "sha512": "u/vJNHsHilIr3bNOdnzjvlaHFTP4JacRzJLoqu3o5kl8Cxs1HrSLJ1Hv9o3ZXCwVgwkFLRFKF0a5+RDZhNExZQ==",
+      "sha512": "drOmgNZCJiNEqFM/TvyqwtogS8wqoWGQCW5KB/CVGKL6VXHw8OOMdaHyspp8HPstP9UDnrnuq+8eaCaAcQg6tA==",
       "type": "package",
       "path": "microsoft.extensions.objectpool/2.0.0",
       "files": [
-        ".signature.p7s",
         "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.dll",
         "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.xml",
         "microsoft.extensions.objectpool.2.0.0.nupkg.sha512",
@@ -5076,11 +5076,10 @@
       ]
     },
     "System.Buffers/4.4.0": {
-      "sha512": "VCJfpWcYG1gT3WwivZWgT0KaqY678MQBvrOI2si6V8GHeQOtuW+wpiv5ss4KyfGG+cFFdPNaI+nw2/kExCtGgQ==",
+      "sha512": "AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
       "type": "package",
       "path": "system.buffers/4.4.0",
       "files": [
-        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp2.0/_._",
@@ -5473,10 +5472,11 @@
       ]
     },
     "System.Data.Common/4.3.0": {
-      "sha512": "lm6E3T5u7BOuEH0u18JpbJHxBfOJPuCyl4Kg1RH10ktYLp5uEEE1xKrHW56/We4SnZpGAuCc9N0MJpSDhTHZGQ==",
+      "sha512": "OGX4ifHI67s/2KRrXGMmEjmszCptbhWS4BieBdiBPl/8pn0A1xPMx0Gn0dKK0zKtEaelYNh5M7M5lCZL0EA4eA==",
       "type": "package",
       "path": "system.data.common/4.3.0",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9258,26 +9258,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\asharma\\.nuget\\packages\\": {},
+    "C:\\Users\\ggabbi\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\AdminService\\UserService.csproj",
+      "projectUniqueName": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\AdminService\\UserService.csproj",
       "projectName": "UserService",
-      "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\AdminService\\UserService.csproj",
-      "packagesPath": "C:\\Users\\asharma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\AdminService\\obj\\",
+      "projectPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\AdminService\\UserService.csproj",
+      "packagesPath": "C:\\Users\\ggabbi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\AdminService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\asharma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ggabbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9290,11 +9287,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj": {
-              "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj"
+            "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj": {
+              "projectPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj"
             },
-            "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj": {
-              "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj"
+            "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj": {
+              "projectPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj"
             }
           }
         }
@@ -9310,93 +9307,93 @@
         "dependencies": {
           "AWSSDK.Core": {
             "target": "Package",
-            "version": "3.3.29.2"
+            "version": "[3.3.29.2, )"
           },
-          "Microsoft.AspNet.WebApi.Core": {
+          "AWSSDK.Rekognition": {
             "target": "Package",
-            "version": "5.2.6"
+            "version": "[3.3.11.10, )"
           },
-          "FirebaseNetAdmin": {
+          "AWSSDK.S3": {
             "target": "Package",
-            "version": "1.0.0"
+            "version": "[3.3.26.1, )"
           },
-          "System.Security.Cryptography.Algorithms": {
+          "AWSSDKCPP-Rekognition": {
             "target": "Package",
-            "version": "4.3.1"
+            "version": "[1.6.20160627.25, )"
           },
-          "NLog.Web.AspNetCore": {
+          "Amazon.S3": {
             "target": "Package",
-            "version": "4.7.0"
+            "version": "[0.11.5, )"
           },
-          "Twilio": {
+          "EPPlus.Core": {
             "target": "Package",
-            "version": "5.20.1"
+            "version": "[1.5.4, )"
+          },
+          "Firebase.js": {
+            "target": "Package",
+            "version": "[2.1.2, )"
+          },
+          "FirebaseAuthentication.net": {
+            "target": "Package",
+            "version": "[3.1.0, )"
           },
           "FirebaseDatabase.net": {
             "target": "Package",
-            "version": "3.3.3"
+            "version": "[3.3.3, )"
+          },
+          "FirebaseNetAdmin": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           },
           "FirebaseStorage.net": {
             "target": "Package",
-            "version": "1.0.2"
+            "version": "[1.0.2, )"
           },
-          "System.Security.Cryptography.ProtectedData": {
+          "Microsoft.AspNet.WebApi.Core": {
             "target": "Package",
-            "version": "4.5.0"
-          },
-          "Microsoft.Net.WebSockets.Server": {
-            "target": "Package",
-            "version": "0.1.0"
-          },
-          "System.Net.Http": {
-            "target": "Package",
-            "version": "4.3.4"
-          },
-          "System.Security.Cryptography.X509Certificates": {
-            "target": "Package",
-            "version": "4.3.2"
+            "version": "[5.2.6, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1",
+            "version": "[2.1.0, )",
             "autoReferenced": true
-          },
-          "AWSSDKCPP-Rekognition": {
-            "target": "Package",
-            "version": "1.6.20160627.25"
-          },
-          "jQuery.Validation.Unobtrusive": {
-            "target": "Package",
-            "version": "2.0.20710"
-          },
-          "Firebase.js": {
-            "target": "Package",
-            "version": "2.1.2"
           },
           "Microsoft.Net.Http": {
             "target": "Package",
-            "version": "2.2.29"
+            "version": "[2.2.29, )"
           },
-          "AWSSDK.Rekognition": {
+          "Microsoft.Net.WebSockets.Server": {
             "target": "Package",
-            "version": "3.3.11.10"
+            "version": "[0.1.0, )"
           },
-          "Amazon.S3": {
+          "NLog.Web.AspNetCore": {
             "target": "Package",
-            "version": "0.11.5"
+            "version": "[4.7.0, )"
           },
-          "EPPlus.Core": {
+          "System.Net.Http": {
             "target": "Package",
-            "version": "1.5.4"
+            "version": "[4.3.4, )"
           },
-          "FirebaseAuthentication.net": {
+          "System.Security.Cryptography.Algorithms": {
             "target": "Package",
-            "version": "3.1.0"
+            "version": "[4.3.1, )"
           },
-          "AWSSDK.S3": {
+          "System.Security.Cryptography.ProtectedData": {
             "target": "Package",
-            "version": "3.3.26.1"
+            "version": "[4.5.0, )"
+          },
+          "System.Security.Cryptography.X509Certificates": {
+            "target": "Package",
+            "version": "[4.3.2, )"
+          },
+          "Twilio": {
+            "target": "Package",
+            "version": "[5.20.1, )"
+          },
+          "jQuery.Validation.Unobtrusive": {
+            "target": "Package",
+            "version": "[2.0.20710, )"
           }
         },
         "imports": [

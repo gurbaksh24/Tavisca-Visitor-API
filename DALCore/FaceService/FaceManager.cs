@@ -17,7 +17,7 @@ namespace FaceService
                 string accessKeyId = "AKIAJM4TC3NLKAVPLCFQ";
                 string secretAccessKey = "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";
                 BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(accessKeyId, secretAccessKey);
-                AmazonRekognitionClient amazonRekognitionClient = new AmazonRekognitionClient(basicAWSCredentials);
+                AmazonRekognitionClient amazonRekognitionClient = new AmazonRekognitionClient(basicAWSCredentials, RegionEndpoint.APSouth1);
                 var response = await amazonRekognitionClient.SearchFacesByImageAsync(new SearchFacesByImageRequest
                 {
                     CollectionId = collectionName,
@@ -37,32 +37,43 @@ namespace FaceService
                     int imageId = Convert.ToInt32(response.FaceMatches[0].Face.ExternalImageId);
                     return GetVisitorNameById(imageId);
                 }
-                    
+
                 else
                     return "No Match Found";
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                return exception.StackTrace;
+                return "Exception Occurred";
             }
         }
 
-        public void AddANewFace(string imageId)
+        public async System.Threading.Tasks.Task<string> AddANewFaceAsync(string imageId)
         {
-            AmazonRekognitionClient amazonRekognitionClient = new AmazonRekognitionClient();
-            var response = amazonRekognitionClient.IndexFacesAsync(new IndexFacesRequest
+            try
             {
-                CollectionId = "visitors",
-                ExternalImageId = imageId,
-                Image = new Image
+                string accessKeyId = "AKIAJM4TC3NLKAVPLCFQ";
+                string secretAccessKey = "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";
+                BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(accessKeyId, secretAccessKey);
+                AmazonRekognitionClient amazonRekognitionClient = new AmazonRekognitionClient(basicAWSCredentials, RegionEndpoint.APSouth1);
+                var response = await amazonRekognitionClient.IndexFacesAsync(new IndexFacesRequest
                 {
-                    S3Object = new Amazon.Rekognition.Model.S3Object
+                    CollectionId = "visitors",
+                    ExternalImageId = imageId,
+                    Image = new Image
                     {
-                        Bucket = "visitors-bucket",
-                        Name = "new_visitor.jpg"
+                        S3Object = new Amazon.Rekognition.Model.S3Object
+                        {
+                            Bucket = "visitors-bucket",
+                            Name = "new_visitor.jpg"
+                        }
                     }
-                }
-            });
+                });
+                return "success";
+            }
+            catch (Exception exception)
+            {
+                return "exception: " + exception.StackTrace;
+            }
         }
         public string GetVisitorNameById(int Id)
         {
@@ -70,7 +81,7 @@ namespace FaceService
             {
                 var entity = new DatabaseContext();
                 Visitors Visitor = entity.Visitors.Where(entry => entry.VisitorId == Id).FirstOrDefault();
-                return Visitor.NameOfVisitor;
+                return Visitor.NameOfVisitor + ":" + Id;
             }
             catch (Exception ex)
             {

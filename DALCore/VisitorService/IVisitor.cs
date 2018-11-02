@@ -17,12 +17,13 @@ namespace VisitorService
         List<VisitorsData> GetVisitorLogByNameAndDate(string nameOfVisitor, string fromDate, string toDate, string fromTime, string toTime);
         List<Visitors> GetUniqueVisitors();
         List<Visitors> GetUniqueVisitorsByName(string searchInput);
-        string AddNewVisitor(NewVisitorFormData newVisitorData);
+        System.Threading.Tasks.Task<string> AddNewVisitorAsync(NewVisitorFormData newVisitorData);
         List<MatchingSubstring> AllMatchingEmployeeNames(string userInput);
         int SendAndReturnOtp(string ContactNo);
         string GetVisitorNameById(int Id);
         string SaveVisitorExitTime(int Id);
         string AddNewVisitorLog(NewVisitorFormData VisitorData);
+        bool AddExistingVisitorLog(ExistingVisitorEntryForm existingVisitorEntryForm);
     }
 
 }

@@ -32,3 +32,15 @@ C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netco
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netcoreapp2.1\FaceService.AssemblyInfo.cs
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netcoreapp2.1\FaceService.dll
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netcoreapp2.1\FaceService.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\bin\Debug\netcoreapp2.1\FaceService.deps.json
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\bin\Debug\netcoreapp2.1\FaceService.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\bin\Debug\netcoreapp2.1\FaceService.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\bin\Debug\netcoreapp2.1\Core.Contracts.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\bin\Debug\netcoreapp2.1\Core.Contracts.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netcoreapp2.1\FaceService.csprojAssemblyReference.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netcoreapp2.1\FaceService.csproj.CoreCompileInputs.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netcoreapp2.1\FaceService.AssemblyInfoInputs.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netcoreapp2.1\FaceService.AssemblyInfo.cs
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netcoreapp2.1\FaceService.csproj.CopyComplete
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netcoreapp2.1\FaceService.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\FaceService\obj\Debug\netcoreapp2.1\FaceService.pdb

@@ -14,8 +14,8 @@ namespace VisitorService
 {
     public class VisitorManager : IVisitor
     {
-        static List<VisitorsData> AllLogs = new List<VisitorsData>();
-        static List<Visitors> AllVisitors = new List<Visitors>();
+        static List<VisitorsData> allLogs = new List<VisitorsData>();
+        static List<Visitors> allVisitors = new List<Visitors>();
         public List<VisitorsData> GetAllVisitorsFromLog()
         {
             try
@@ -27,7 +27,7 @@ namespace VisitorService
                 {
                     GetVisitorData(entry);
                 }
-                return AllLogs;
+                return allLogs;
             }
             catch (Exception ex)
             {
@@ -55,13 +55,13 @@ namespace VisitorService
                 entry.GuardId = visitor.GuardId;
                 entry.DateOfVisit = visitor.DateOfVisit.ToString();
                 entry.PurposeOfVisit = visitor.PurposeOfVisit;
-                AllLogs.Add(entry);
+                allLogs.Add(entry);
             }
             catch (Exception ex)
             {
                 VisitorsData error = new VisitorsData();
                 error.Error = "Internal Exception: GetVisitorData" + ex.StackTrace;
-                AllLogs.Add(error);
+                allLogs.Add(error);
             }
         }
         public List<VisitorsData> GetVisitorsLogByName(string searchInput)
@@ -75,7 +75,7 @@ namespace VisitorService
                 {
                     GetVisitorDataByName(entry);
                 }
-                return AllLogs;
+                return allLogs;
             }
             catch (Exception ex)
             {
@@ -105,14 +105,14 @@ namespace VisitorService
                     entry.GuardId = result.GuardId;
                     entry.DateOfVisit = result.DateOfVisit.ToString();
                     entry.PurposeOfVisit = result.PurposeOfVisit;
-                    AllLogs.Add(entry);
+                    allLogs.Add(entry);
                 }
             }
             catch (Exception ex)
             {
                 VisitorsData error = new VisitorsData();
                 error.Error = "Internal Exception: GetVisitorDataByName" + ex.StackTrace;
-                AllLogs.Add(error);
+                allLogs.Add(error);
             }
         }
         public List<VisitorsData> GetVisitorsLogByMeetingPerson(string whomToMeet)
@@ -126,7 +126,7 @@ namespace VisitorService
                 {
                     GetVisitorDataByMeetingPerson(entry, whomToMeet);
                 }
-                return AllLogs;
+                return allLogs;
             }
             catch (Exception ex)
             {
@@ -141,26 +141,26 @@ namespace VisitorService
             {
                 var entity = new DatabaseContext();
                 Visitors visitorData = entity.Visitors.Where(row => row.VisitorId == visitor.VisitorId).FirstOrDefault();                
-                    VisitorsData entry = new VisitorsData();
-                    entry.NameOfVisitor = visitorData.NameOfVisitor;
-                    entry.GovtIdProof = visitorData.GovtIdProof;
-                    entry.Contact = visitorData.Contact;
-                    entry.ComingFrom = visitor.ComingFrom;
-                    entry.WhomToMeet = visitor.WhomToMeet;
-                    entry.EmployeeId = visitor.EmployeeId;
-                    entry.TimeIn = visitor.TimeIn.ToString();
-                    entry.TimeOut = visitor.TimeOut.ToString();
-                    entry.VisitorId = visitor.VisitorId;
-                    entry.DateOfVisit = visitor.DateOfVisit.ToString();
-                    entry.GuardId = visitor.GuardId;
+                VisitorsData entry = new VisitorsData();
+                entry.NameOfVisitor = visitorData.NameOfVisitor;
+                entry.GovtIdProof = visitorData.GovtIdProof;
+                entry.Contact = visitorData.Contact;
+                entry.ComingFrom = visitor.ComingFrom;
+                entry.WhomToMeet = visitor.WhomToMeet;
+                entry.EmployeeId = visitor.EmployeeId;
+                entry.TimeIn = visitor.TimeIn.ToString();
+                entry.TimeOut = visitor.TimeOut.ToString();
+                entry.VisitorId = visitor.VisitorId;
+                entry.DateOfVisit = visitor.DateOfVisit.ToString();
+                entry.GuardId = visitor.GuardId;
                 entry.PurposeOfVisit = visitor.PurposeOfVisit;
-                    AllLogs.Add(entry);
+                allLogs.Add(entry);
             }
             catch (Exception ex)
             {
                 VisitorsData error = new VisitorsData();
                 error.Error = "Internal Exception: GetVisitorDataByMeetingPerson" + ex.StackTrace;
-                AllLogs.Add(error);
+                allLogs.Add(error);
             }
         }
         public List<VisitorsData> GetVisitorLogByDate(string fromDate, string toDate, string fromTime, string toTime)
@@ -180,7 +180,7 @@ namespace VisitorService
                     GetVisitorData(entry);
                 }
 
-                return AllLogs;
+                return allLogs;
             }
             catch (Exception ex)
             {
@@ -200,7 +200,7 @@ namespace VisitorService
                 {
                     GetVisitorData(entry);
                 }
-                return AllLogs;
+                return allLogs;
             }
             catch (Exception ex)
             {
@@ -241,9 +241,9 @@ namespace VisitorService
                     uniqueVisitor.NameOfVisitor = entry.NameOfVisitor;
                     uniqueVisitor.GovtIdProof = entry.GovtIdProof;
                     uniqueVisitor.Contact = entry.Contact;
-                    AllVisitors.Add(uniqueVisitor);
+                    allVisitors.Add(uniqueVisitor);
                 }
-                return AllVisitors;
+                return allVisitors;
             }
             catch (Exception ex)
             {
@@ -266,9 +266,9 @@ namespace VisitorService
                     uniqueVisitor.NameOfVisitor = entry.NameOfVisitor;
                     uniqueVisitor.GovtIdProof = entry.GovtIdProof;
                     uniqueVisitor.Contact = entry.Contact;
-                    AllVisitors.Add(uniqueVisitor);
+                    allVisitors.Add(uniqueVisitor);
                 }
-                return AllVisitors;
+                return allVisitors;
             }
             catch (Exception ex)
             {
@@ -277,7 +277,7 @@ namespace VisitorService
                 return error;
             }
         }
-        public string AddNewVisitor(NewVisitorFormData newVisitorData)
+        public async System.Threading.Tasks.Task<string> AddNewVisitorAsync(NewVisitorFormData newVisitorData)
         {
             try
             {
@@ -291,11 +291,11 @@ namespace VisitorService
                 entity.SaveChanges();
                 Visitors newVisitor = entity.Visitors.Where(entry => entry.NameOfVisitor == newVisitorData.nameOfVisitor && entry.Contact == newVisitorData.contactNo).FirstOrDefault();
                 FaceManager faceManager = new FaceManager();
-                faceManager.AddANewFace(newVisitor.VisitorId.ToString());
+                await faceManager.AddANewFaceAsync(newVisitor.VisitorId.ToString());
                 AddNewVisitorLog(newVisitorData);
                 return "visitor added successfully";
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return "unable to add visitor";
             }
@@ -323,6 +323,43 @@ namespace VisitorService
             catch(Exception ex)
             {
                 return "Could not Add visitor log. Please try again" + ex.StackTrace;
+            }
+        }
+        public bool AddExistingVisitorLog(ExistingVisitorEntryForm existingVisitorEntryForm)
+        {
+            try
+            {
+                var entity = new DatabaseContext();
+                VisitorsLogs newLog = new VisitorsLogs();
+                newLog.ComingFrom = existingVisitorEntryForm.ComingFrom;
+                newLog.WhomToMeet = existingVisitorEntryForm.WhomToMeet;
+                string empId = GetEmployeeIdByName(existingVisitorEntryForm.WhomToMeet);
+                newLog.EmployeeId = empId;
+                newLog.DateOfVisit = DateTime.Today;
+                newLog.TimeIn = DateTime.Now.TimeOfDay;
+                newLog.VisitorId = existingVisitorEntryForm.VisitorId;
+                newLog.GuardId = existingVisitorEntryForm.GuardId;
+                newLog.PurposeOfVisit = existingVisitorEntryForm.PurposeOfVisit;
+                entity.VisitorsLogs.Add(newLog);
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public string GetEmployeeIdByName(string Name)
+        {
+            try
+            {
+                var entity = new DatabaseContext();
+                Employees Employee = entity.Employees.Where(entry => entry.EmployeeName == Name).FirstOrDefault();
+                return Employee.EmployeeId;
+            }
+            catch (Exception ex)
+            {
+                return "Unable to fetch name";
             }
         }
         public List<MatchingSubstring> AllMatchingEmployeeNames(string userInput)
@@ -364,6 +401,19 @@ namespace VisitorService
                 return "Unable to fetch name";
             }
         }
+        public Visitors GetVisitorDetailsById(int Id)
+        {
+            try
+            {
+                var entity = new DatabaseContext();
+                Visitors Visitor = entity.Visitors.Where(entry => entry.VisitorId == Id).FirstOrDefault();
+                return Visitor;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public string SaveVisitorExitTime(int Id)
         {
             try
@@ -381,8 +431,8 @@ namespace VisitorService
         }
         public void ClearList()
         {
-            AllLogs.Clear();
-            AllVisitors.Clear();
+            allLogs.Clear();
+            allVisitors.Clear();
         }
     }
 }

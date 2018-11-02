@@ -78,7 +78,7 @@ namespace EmployeeService
                 entity.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

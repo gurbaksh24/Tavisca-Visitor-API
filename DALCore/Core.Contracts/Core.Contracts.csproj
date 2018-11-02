@@ -12,10 +12,13 @@
 
   <ItemGroup>
     <Compile Include="Models\AllLogs.cs" />
+    <Compile Include="Models\AppSetting.cs" />
+    <Compile Include="Models\CollectionName.cs" />
     <Compile Include="Models\DateAndName.cs" />
     <Compile Include="Models\DateAndTime.cs" />
     <Compile Include="Models\EmployeeLogs.cs" />
     <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\ExistingVisitorEntryForm.cs" />
     <Compile Include="Models\Guard.cs" />
     <Compile Include="Models\GuardData.cs" />
     <Compile Include="Models\GuardLogs.cs" />

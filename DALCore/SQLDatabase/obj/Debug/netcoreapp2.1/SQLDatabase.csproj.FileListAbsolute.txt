@@ -44,3 +44,15 @@ C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netco
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netcoreapp2.1\SQLDatabase.AssemblyInfo.cs
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netcoreapp2.1\SQLDatabase.dll
 C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netcoreapp2.1\SQLDatabase.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\bin\Debug\netcoreapp2.1\SQLDatabase.deps.json
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\bin\Debug\netcoreapp2.1\SQLDatabase.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\bin\Debug\netcoreapp2.1\SQLDatabase.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\bin\Debug\netcoreapp2.1\Core.Contracts.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\bin\Debug\netcoreapp2.1\Core.Contracts.pdb
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netcoreapp2.1\SQLDatabase.csprojAssemblyReference.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netcoreapp2.1\SQLDatabase.csproj.CoreCompileInputs.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netcoreapp2.1\SQLDatabase.AssemblyInfoInputs.cache
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netcoreapp2.1\SQLDatabase.AssemblyInfo.cs
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netcoreapp2.1\SQLDatabase.csproj.CopyComplete
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netcoreapp2.1\SQLDatabase.dll
+C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\SQLDatabase\obj\Debug\netcoreapp2.1\SQLDatabase.pdb

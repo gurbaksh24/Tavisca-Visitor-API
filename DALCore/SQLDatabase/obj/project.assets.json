@@ -3357,10 +3357,11 @@
       ]
     },
     "System.Data.Common/4.3.0": {
-      "sha512": "lm6E3T5u7BOuEH0u18JpbJHxBfOJPuCyl4Kg1RH10ktYLp5uEEE1xKrHW56/We4SnZpGAuCc9N0MJpSDhTHZGQ==",
+      "sha512": "OGX4ifHI67s/2KRrXGMmEjmszCptbhWS4BieBdiBPl/8pn0A1xPMx0Gn0dKK0zKtEaelYNh5M7M5lCZL0EA4eA==",
       "type": "package",
       "path": "system.data.common/4.3.0",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -6537,26 +6538,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\asharma\\.nuget\\packages\\": {},
+    "C:\\Users\\ggabbi\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj",
+      "projectUniqueName": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj",
       "projectName": "SQLDatabase",
-      "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj",
-      "packagesPath": "C:\\Users\\asharma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\obj\\",
+      "projectPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj",
+      "packagesPath": "C:\\Users\\ggabbi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\asharma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ggabbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6569,8 +6567,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj": {
-              "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj"
+            "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj": {
+              "projectPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj"
             }
           }
         }
@@ -6586,21 +6584,21 @@
         "dependencies": {
           "AWSSDK.Core": {
             "target": "Package",
-            "version": "3.3.29.2"
+            "version": "[3.3.29.2, )"
+          },
+          "AWSSDK.Rekognition": {
+            "target": "Package",
+            "version": "[3.3.11.10, )"
+          },
+          "EPPlus.Core": {
+            "target": "Package",
+            "version": "[1.5.4, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1",
+            "version": "[2.1.0, )",
             "autoReferenced": true
-          },
-          "AWSSDK.Rekognition": {
-            "target": "Package",
-            "version": "3.3.11.10"
-          },
-          "EPPlus.Core": {
-            "target": "Package",
-            "version": "1.5.4"
           }
         },
         "imports": [
