@@ -45,3 +45,7 @@ C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\Adm
 C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\AdminsService\obj\Debug\netcoreapp2.1\AdminsService.csproj.CopyComplete
 C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\AdminsService\obj\Debug\netcoreapp2.1\AdminsService.dll
 C:\Users\ggabbi\Desktop\VisitorEmployeeAPI-final\Tavisca-Visitor-API\DALCore\AdminsService\obj\Debug\netcoreapp2.1\AdminsService.pdb
+C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\AdminsService\bin\Debug\netcoreapp2.1\Translations.dll
+C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\AdminsService\bin\Debug\netcoreapp2.1\UI.Entities.dll
+C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\AdminsService\bin\Debug\netcoreapp2.1\UI.Entities.pdb
+C:\Users\asharma\Desktop\Tavisca-Visitor-API\DALCore\AdminsService\bin\Debug\netcoreapp2.1\Translations.pdb

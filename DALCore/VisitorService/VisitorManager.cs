@@ -9,13 +9,15 @@ using Microsoft.EntityFrameworkCore;
 using UserService;
 using SQLDatabase;
 using FaceService;
+using UI.Entities;
+using Translations;
 
 namespace VisitorService
 {
     public class VisitorManager : IVisitor
     {
-        static List<VisitorsData> allLogs = new List<VisitorsData>();
-        static List<Visitors> allVisitors = new List<Visitors>();
+        static List<VisitorsData> AllLogs = new List<VisitorsData>();
+        static List<Visitors> AllVisitors = new List<Visitors>();
         public List<VisitorsData> GetAllVisitorsFromLog()
         {
             try
@@ -27,12 +29,12 @@ namespace VisitorService
                 {
                     GetVisitorData(entry);
                 }
-                return allLogs;
+                return AllLogs;
             }
             catch (Exception ex)
             {
                 List<VisitorsData> error = new List<VisitorsData>();
-                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                error[0].Error = true;
                 return error;
             }
         }
@@ -55,13 +57,13 @@ namespace VisitorService
                 entry.GuardId = visitor.GuardId;
                 entry.DateOfVisit = visitor.DateOfVisit.ToString();
                 entry.PurposeOfVisit = visitor.PurposeOfVisit;
-                allLogs.Add(entry);
+                AllLogs.Add(entry);
             }
             catch (Exception ex)
             {
                 VisitorsData error = new VisitorsData();
-                error.Error = "Internal Exception: GetVisitorData" + ex.StackTrace;
-                allLogs.Add(error);
+                error.Error = true;
+                AllLogs.Add(error);
             }
         }
         public List<VisitorsData> GetVisitorsLogByName(string searchInput)
@@ -75,12 +77,12 @@ namespace VisitorService
                 {
                     GetVisitorDataByName(entry);
                 }
-                return allLogs;
+                return AllLogs;
             }
             catch (Exception ex)
             {
                 List<VisitorsData> error = new List<VisitorsData>();
-                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                error[0].Error = true;
                 return error;
             }
         }
@@ -105,14 +107,14 @@ namespace VisitorService
                     entry.GuardId = result.GuardId;
                     entry.DateOfVisit = result.DateOfVisit.ToString();
                     entry.PurposeOfVisit = result.PurposeOfVisit;
-                    allLogs.Add(entry);
+                    AllLogs.Add(entry);
                 }
             }
             catch (Exception ex)
             {
                 VisitorsData error = new VisitorsData();
-                error.Error = "Internal Exception: GetVisitorDataByName" + ex.StackTrace;
-                allLogs.Add(error);
+                error.Error = true;
+                AllLogs.Add(error);
             }
         }
         public List<VisitorsData> GetVisitorsLogByMeetingPerson(string whomToMeet)
@@ -126,12 +128,12 @@ namespace VisitorService
                 {
                     GetVisitorDataByMeetingPerson(entry, whomToMeet);
                 }
-                return allLogs;
+                return AllLogs;
             }
             catch (Exception ex)
             {
                 List<VisitorsData> error = new List<VisitorsData>();
-                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                error[0].Error = true;
                 return error;
             }
         }
@@ -140,7 +142,7 @@ namespace VisitorService
             try
             {
                 var entity = new DatabaseContext();
-                Visitors visitorData = entity.Visitors.Where(row => row.VisitorId == visitor.VisitorId).FirstOrDefault();                
+                Visitors visitorData = entity.Visitors.Where(row => row.VisitorId == visitor.VisitorId).FirstOrDefault();
                 VisitorsData entry = new VisitorsData();
                 entry.NameOfVisitor = visitorData.NameOfVisitor;
                 entry.GovtIdProof = visitorData.GovtIdProof;
@@ -154,13 +156,13 @@ namespace VisitorService
                 entry.DateOfVisit = visitor.DateOfVisit.ToString();
                 entry.GuardId = visitor.GuardId;
                 entry.PurposeOfVisit = visitor.PurposeOfVisit;
-                allLogs.Add(entry);
+                AllLogs.Add(entry);
             }
             catch (Exception ex)
             {
                 VisitorsData error = new VisitorsData();
-                error.Error = "Internal Exception: GetVisitorDataByMeetingPerson" + ex.StackTrace;
-                allLogs.Add(error);
+                error.Error = true;
+                AllLogs.Add(error);
             }
         }
         public List<VisitorsData> GetVisitorLogByDate(string fromDate, string toDate, string fromTime, string toTime)
@@ -174,18 +176,19 @@ namespace VisitorService
                     toTime = "23:59:59";
                 }
                 var entity = new DatabaseContext();
-                List<VisitorsLogs> visitorLogsList = entity.VisitorsLogs.Where(entry =>entry.DateOfVisit >= Convert.ToDateTime(fromDate).Date && entry.DateOfVisit <= Convert.ToDateTime(toDate).Date && entry.TimeIn >= Convert.ToDateTime(fromTime).TimeOfDay && entry.TimeIn <= Convert.ToDateTime(toTime).TimeOfDay).ToList<VisitorsLogs>();
+                List<VisitorsLogs> visitorLogsList = entity.VisitorsLogs.Where(entry => entry.DateOfVisit >= Convert.ToDateTime(fromDate).Date && entry.DateOfVisit <= Convert.ToDateTime(toDate).Date && entry.TimeIn >= Convert.ToDateTime(fromTime).TimeOfDay && entry.TimeIn <= Convert.ToDateTime(toTime).TimeOfDay).ToList<VisitorsLogs>();
                 foreach (var entry in visitorLogsList)
                 {
                     GetVisitorData(entry);
                 }
 
-                return allLogs;
+
+                return AllLogs;
             }
             catch (Exception ex)
             {
                 List<VisitorsData> error = new List<VisitorsData>();
-                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                error[0].Error = true;
                 return error;
             }
         }
@@ -200,12 +203,12 @@ namespace VisitorService
                 {
                     GetVisitorData(entry);
                 }
-                return allLogs;
+                return AllLogs;
             }
             catch (Exception ex)
             {
                 List<VisitorsData> error = new List<VisitorsData>();
-                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                error[0].Error = true;
                 return error;
             }
         }
@@ -221,13 +224,13 @@ namespace VisitorService
             catch (Exception ex)
             {
                 List<VisitorsData> error = new List<VisitorsData>();
-                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                error[0].Error = true;
                 return error;
             }
         }
 
         //Unique Visitor Data: 
-        public List<Visitors> GetUniqueVisitors()
+        public List<VisitorData> GetUniqueVisitors()
         {
             try
             {
@@ -241,18 +244,20 @@ namespace VisitorService
                     uniqueVisitor.NameOfVisitor = entry.NameOfVisitor;
                     uniqueVisitor.GovtIdProof = entry.GovtIdProof;
                     uniqueVisitor.Contact = entry.Contact;
-                    allVisitors.Add(uniqueVisitor);
+                    AllVisitors.Add(uniqueVisitor);
                 }
-                return allVisitors;
+                ToVisitorData toVisitorData = new ToVisitorData();
+                List<VisitorData> TransaltedData = toVisitorData.TranslateToVisitorDataList(AllVisitors);
+                return TransaltedData;
             }
             catch (Exception ex)
             {
-                List<Visitors> error = new List<Visitors>();
-                error[0].GovtIdProof = "Could not get Visitors. Please try again" + ex.StackTrace;
-                return error;
+                List<VisitorData> TranslatedList = new List<VisitorData>();
+                TranslatedList[0].Error = true;
+                return TranslatedList;
             }
         }
-        public List<Visitors> GetUniqueVisitorsByName(string searchInput)
+        public List<VisitorData> GetUniqueVisitorsByName(string searchInput)
         {
             try
             {
@@ -266,18 +271,20 @@ namespace VisitorService
                     uniqueVisitor.NameOfVisitor = entry.NameOfVisitor;
                     uniqueVisitor.GovtIdProof = entry.GovtIdProof;
                     uniqueVisitor.Contact = entry.Contact;
-                    allVisitors.Add(uniqueVisitor);
+                    AllVisitors.Add(uniqueVisitor);
                 }
-                return allVisitors;
+                ToVisitorData toVisitorData = new ToVisitorData();
+                List<VisitorData> TransaltedData = toVisitorData.TranslateToVisitorDataList(AllVisitors);
+                return TransaltedData;
             }
             catch (Exception ex)
             {
-                List<Visitors> error = new List<Visitors>();
-                error[0].GovtIdProof = "Could not get Visitors. Please try again" + ex.StackTrace;
-                return error;
+                List<VisitorData> TranslatedList = new List<VisitorData>();
+                TranslatedList[0].Error = true;
+                return TranslatedList;
             }
         }
-        public async System.Threading.Tasks.Task<string> AddNewVisitorAsync(NewVisitorFormData newVisitorData)
+        public string AddNewVisitor(NewVisitorFormData newVisitorData)
         {
             try
             {
@@ -291,11 +298,11 @@ namespace VisitorService
                 entity.SaveChanges();
                 Visitors newVisitor = entity.Visitors.Where(entry => entry.NameOfVisitor == newVisitorData.nameOfVisitor && entry.Contact == newVisitorData.contactNo).FirstOrDefault();
                 FaceManager faceManager = new FaceManager();
-                await faceManager.AddANewFaceAsync(newVisitor.VisitorId.ToString());
+                faceManager.AddANewFaceAsync(newVisitor.VisitorId.ToString());
                 AddNewVisitorLog(newVisitorData);
                 return "visitor added successfully";
             }
-            catch(Exception)
+            catch (Exception ex)
             {
                 return "unable to add visitor";
             }
@@ -320,46 +327,9 @@ namespace VisitorService
                 entity.SaveChanges();
                 return "Log successfully saved";
             }
-            catch(Exception ex)
-            {
-                return "Could not Add visitor log. Please try again" + ex.StackTrace;
-            }
-        }
-        public bool AddExistingVisitorLog(ExistingVisitorEntryForm existingVisitorEntryForm)
-        {
-            try
-            {
-                var entity = new DatabaseContext();
-                VisitorsLogs newLog = new VisitorsLogs();
-                newLog.ComingFrom = existingVisitorEntryForm.ComingFrom;
-                newLog.WhomToMeet = existingVisitorEntryForm.WhomToMeet;
-                string empId = GetEmployeeIdByName(existingVisitorEntryForm.WhomToMeet);
-                newLog.EmployeeId = empId;
-                newLog.DateOfVisit = DateTime.Today;
-                newLog.TimeIn = DateTime.Now.TimeOfDay;
-                newLog.VisitorId = existingVisitorEntryForm.VisitorId;
-                newLog.GuardId = existingVisitorEntryForm.GuardId;
-                newLog.PurposeOfVisit = existingVisitorEntryForm.PurposeOfVisit;
-                entity.VisitorsLogs.Add(newLog);
-                entity.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-        public string GetEmployeeIdByName(string Name)
-        {
-            try
-            {
-                var entity = new DatabaseContext();
-                Employees Employee = entity.Employees.Where(entry => entry.EmployeeName == Name).FirstOrDefault();
-                return Employee.EmployeeId;
-            }
             catch (Exception ex)
             {
-                return "Unable to fetch name";
+                return "Could not Add visitor log. Please try again" + ex.StackTrace;
             }
         }
         public List<MatchingSubstring> AllMatchingEmployeeNames(string userInput)
@@ -367,7 +337,7 @@ namespace VisitorService
             List<MatchingSubstring> MatchingResults = new List<MatchingSubstring>();
             var entity = new DatabaseContext();
             List<Employees> employeesList = entity.Employees.Where(entry => entry.EmployeeName.Contains(userInput)).ToList<Employees>();
-            foreach(var Entry in employeesList)
+            foreach (var Entry in employeesList)
             {
                 MatchingSubstring name = new MatchingSubstring();
                 name.MatchingResult = Entry.EmployeeName;
@@ -396,22 +366,9 @@ namespace VisitorService
                 Visitors Visitor = entity.Visitors.Where(entry => entry.VisitorId == Id).FirstOrDefault();
                 return Visitor.NameOfVisitor;
             }
-            catch(Exception ex)
-            {
-                return "Unable to fetch name";
-            }
-        }
-        public Visitors GetVisitorDetailsById(int Id)
-        {
-            try
-            {
-                var entity = new DatabaseContext();
-                Visitors Visitor = entity.Visitors.Where(entry => entry.VisitorId == Id).FirstOrDefault();
-                return Visitor;
-            }
             catch (Exception ex)
             {
-                return null;
+                return "Unable to fetch name";
             }
         }
         public string SaveVisitorExitTime(int Id)
@@ -424,15 +381,15 @@ namespace VisitorService
                 entity.SaveChanges();
                 return "Exit Time Recorded";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return "Unable to record exit time";
             }
         }
         public void ClearList()
         {
-            allLogs.Clear();
-            allVisitors.Clear();
+            AllLogs.Clear();
+            AllVisitors.Clear();
         }
     }
 }

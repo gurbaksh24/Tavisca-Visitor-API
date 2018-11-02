@@ -2815,6 +2815,30 @@
           "bin/placeholder/SQLDatabase.dll": {}
         }
       },
+      "Translations/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Core.Contracts": "1.0.0",
+          "UI.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Translations.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Translations.dll": {}
+        }
+      },
+      "UI.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/UI.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UI.Entities.dll": {}
+        }
+      },
       "UserService/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -3546,7 +3570,7 @@
       ]
     },
     "Microsoft.AspNet.WebApi.Core/5.2.6": {
-      "sha512": "8UiHr2VkrpwDCwXaXea8pNaR2zvJ3HYwsmWmkTFY1lEB2u4eFnL+aM+/GJK91Ud3KQ7Xse+Vysvj/UalM3IlmA==",
+      "sha512": "QMFixs/MvKZXjfUbV0gXxF85LKi+keu/zJKv13upg/JlcxJ+wdLSYzyHO/sgPPUuFVstgndK6Zt3VduWeqFmHQ==",
       "type": "package",
       "path": "microsoft.aspnet.webapi.core/5.2.6",
       "files": [
@@ -3734,11 +3758,10 @@
       ]
     },
     "Microsoft.Bcl.Build/1.0.14": {
-      "sha512": "57EJ/NGEDQkIlQs9aO4adkYeaHMdg+pn5D8RfO1ZXQJgHOjTfGH+kWfppEaD6cg0PE2kGn9/GsACcu2LLyJM0g==",
+      "sha512": "cDLKSvNvRa519hplsbSoYqO69TjdDIhfjtKUM0g20/nVROoWsGav9KCI9HtnGjLmdV1+TcUUDhbotcllibjPEA==",
       "type": "package",
       "path": "microsoft.bcl.build/1.0.14",
       "files": [
-        ".signature.p7s",
         "License-Stable.rtf",
         "content/net40/_._",
         "content/netcore45/_._",
@@ -4006,10 +4029,11 @@
       ]
     },
     "Microsoft.Extensions.ObjectPool/2.0.0": {
-      "sha512": "drOmgNZCJiNEqFM/TvyqwtogS8wqoWGQCW5KB/CVGKL6VXHw8OOMdaHyspp8HPstP9UDnrnuq+8eaCaAcQg6tA==",
+      "sha512": "u/vJNHsHilIr3bNOdnzjvlaHFTP4JacRzJLoqu3o5kl8Cxs1HrSLJ1Hv9o3ZXCwVgwkFLRFKF0a5+RDZhNExZQ==",
       "type": "package",
       "path": "microsoft.extensions.objectpool/2.0.0",
       "files": [
+        ".signature.p7s",
         "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.dll",
         "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.xml",
         "microsoft.extensions.objectpool.2.0.0.nupkg.sha512",
@@ -5127,10 +5151,11 @@
       ]
     },
     "System.Buffers/4.4.0": {
-      "sha512": "AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
+      "sha512": "VCJfpWcYG1gT3WwivZWgT0KaqY678MQBvrOI2si6V8GHeQOtuW+wpiv5ss4KyfGG+cFFdPNaI+nw2/kExCtGgQ==",
       "type": "package",
       "path": "system.buffers/4.4.0",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp2.0/_._",
@@ -5523,11 +5548,10 @@
       ]
     },
     "System.Data.Common/4.3.0": {
-      "sha512": "OGX4ifHI67s/2KRrXGMmEjmszCptbhWS4BieBdiBPl/8pn0A1xPMx0Gn0dKK0zKtEaelYNh5M7M5lCZL0EA4eA==",
+      "sha512": "lm6E3T5u7BOuEH0u18JpbJHxBfOJPuCyl4Kg1RH10ktYLp5uEEE1xKrHW56/We4SnZpGAuCc9N0MJpSDhTHZGQ==",
       "type": "package",
       "path": "system.data.common/4.3.0",
       "files": [
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9284,6 +9308,16 @@
       "path": "../SQLDatabase/SQLDatabase.csproj",
       "msbuildProject": "../SQLDatabase/SQLDatabase.csproj"
     },
+    "Translations/1.0.0": {
+      "type": "project",
+      "path": "../Translations/Translations.csproj",
+      "msbuildProject": "../Translations/Translations.csproj"
+    },
+    "UI.Entities/1.0.0": {
+      "type": "project",
+      "path": "../EmployeeData/UI.Entities.csproj",
+      "msbuildProject": "../EmployeeData/UI.Entities.csproj"
+    },
     "UserService/1.0.0": {
       "type": "project",
       "path": "../AdminService/UserService.csproj",
@@ -9303,27 +9337,32 @@
       "System.Security.Cryptography.Algorithms >= 4.3.1",
       "System.Security.Cryptography.ProtectedData >= 4.5.0",
       "System.Security.Cryptography.X509Certificates >= 4.3.2",
+      "Translations >= 1.0.0",
+      "UI.Entities >= 1.0.0",
       "UserService >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ggabbi\\.nuget\\packages\\": {},
+    "C:\\Users\\asharma\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\VisitorService\\VisitorService.csproj",
+      "projectUniqueName": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\VisitorService\\VisitorService.csproj",
       "projectName": "VisitorService",
-      "projectPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\VisitorService\\VisitorService.csproj",
-      "packagesPath": "C:\\Users\\ggabbi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\VisitorService\\obj\\",
+      "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\VisitorService\\VisitorService.csproj",
+      "packagesPath": "C:\\Users\\asharma\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\VisitorService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ggabbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\asharma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9336,17 +9375,23 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\AdminService\\UserService.csproj": {
-              "projectPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\AdminService\\UserService.csproj"
+            "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj": {
+              "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj"
             },
-            "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj": {
-              "projectPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj"
+            "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\FaceService\\FaceService.csproj": {
+              "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\FaceService\\FaceService.csproj"
             },
-            "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\FaceService\\FaceService.csproj": {
-              "projectPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\FaceService\\FaceService.csproj"
+            "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\AdminService\\UserService.csproj": {
+              "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\AdminService\\UserService.csproj"
             },
-            "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj": {
-              "projectPath": "C:\\Users\\ggabbi\\Desktop\\VisitorEmployeeAPI-final\\Tavisca-Visitor-API\\DALCore\\SQLDatabase\\SQLDatabase.csproj"
+            "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\Translations\\Translations.csproj": {
+              "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\Translations\\Translations.csproj"
+            },
+            "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj": {
+              "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\Core.Contracts\\Core.Contracts.csproj"
+            },
+            "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\EmployeeData\\UI.Entities.csproj": {
+              "projectPath": "C:\\Users\\asharma\\Desktop\\Tavisca-Visitor-API\\DALCore\\EmployeeData\\UI.Entities.csproj"
             }
           }
         }
@@ -9362,37 +9407,37 @@
         "dependencies": {
           "AWSSDK.Core": {
             "target": "Package",
-            "version": "[3.3.29.2, )"
+            "version": "3.3.29.2"
           },
-          "AWSSDK.Rekognition": {
+          "System.Security.Cryptography.Algorithms": {
             "target": "Package",
-            "version": "[3.3.11.10, )"
+            "version": "4.3.1"
           },
-          "EPPlus.Core": {
+          "System.Security.Cryptography.ProtectedData": {
             "target": "Package",
-            "version": "[1.5.4, )"
+            "version": "4.5.0"
           },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
+          "System.Security.Cryptography.X509Certificates": {
             "target": "Package",
-            "version": "[2.1.4, )"
+            "version": "4.3.2"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.0, )",
+            "version": "2.1",
             "autoReferenced": true
           },
-          "System.Security.Cryptography.Algorithms": {
+          "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "[4.3.1, )"
+            "version": "2.1.4"
           },
-          "System.Security.Cryptography.ProtectedData": {
+          "AWSSDK.Rekognition": {
             "target": "Package",
-            "version": "[4.5.0, )"
+            "version": "3.3.11.10"
           },
-          "System.Security.Cryptography.X509Certificates": {
+          "EPPlus.Core": {
             "target": "Package",
-            "version": "[4.3.2, )"
+            "version": "1.5.4"
           }
         },
         "imports": [

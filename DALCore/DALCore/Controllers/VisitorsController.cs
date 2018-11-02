@@ -3,11 +3,12 @@ using DALCore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Core.Contracts;
 using VisitorService;
-using Core.Contracts.Models; 
+using Core.Contracts.Models;
+using UI.Entities;
 
 namespace DALCore.Controllers
 {
-   
+
     [ApiController]
     public class VisitorsController : ControllerBase
     {
@@ -15,9 +16,9 @@ namespace DALCore.Controllers
         public VisitorsController(IVisitor _visitor)
         {
             visitor = _visitor;
-        } 
+        }
 
-        [HttpGet] 
+        [HttpGet]
         [Route("api/[controller]/Log")]
         public List<VisitorsData> GetVisitorsFromLog()
         {
@@ -51,25 +52,25 @@ namespace DALCore.Controllers
         [Route("api/[controller]/DateAndName")]
         public List<VisitorsData> GetLogByDateAndName([FromBody]DateAndName UserInput)
         {
-            return visitor.GetVisitorLogByNameAndDate(UserInput.nameOfVisitor,UserInput.fromDate, UserInput.toDate, UserInput.fromTime, UserInput.toTime);
+            return visitor.GetVisitorLogByNameAndDate(UserInput.nameOfVisitor, UserInput.fromDate, UserInput.toDate, UserInput.fromTime, UserInput.toTime);
         }
         [HttpGet]
         [Route("api/[controller]/UniqueVisitors")]
-        public List<Visitors> GetAllVisitors()
+        public List<VisitorData> GetAllVisitors()
         {
             return visitor.GetUniqueVisitors();
         }
         [HttpPut]
         [Route("api/[controller]/UniqueVisitorsByName")]
-        public List<Visitors> GetUniqueVisitorByName([FromBody]SearchFilter Name)
+        public List<VisitorData> GetUniqueVisitorByName([FromBody]SearchFilter Name)
         {
             return visitor.GetUniqueVisitorsByName(Name.UserInput);
         }
         [HttpPost]
         [Route("api/[controller]/AddNewVisitor")]
-        public async System.Threading.Tasks.Task<string> NewVisitorEntryAsync([FromBody]NewVisitorFormData newVisitor)
+        public string NewVisitorEntry([FromBody]NewVisitorFormData newVisitor)
         {
-            return await visitor.AddNewVisitorAsync(newVisitor);
+            return visitor.AddNewVisitor(newVisitor);
         }
         [HttpPut]
         [Route("api/[controller]/EmployeesMatchingSubstring")]
@@ -91,22 +92,16 @@ namespace DALCore.Controllers
             return visitor.GetVisitorNameById(Id.userId);
         }
         [HttpPut]
-        [Route("api/[controller]/GetVisitorDetailsById")]
-        public string VisitorDetailsById([FromBody]UserId Id)
-        {
-            return visitor.GetVisitorNameById(Id.userId);
-        }
-        [HttpPut]
         [Route("api/[controller]/SaveExitTime")]
         public string SavingExitTime([FromBody]UserId Id)
-        {           
+        {
             return visitor.SaveVisitorExitTime(Id.userId);
         }
         [HttpPost]
         [Route("api/[controller]/AddVisitorLog")]
-        public bool AddNewVisitorLog([FromBody]ExistingVisitorEntryForm VisitorData)
-        {   
-            return visitor.AddExistingVisitorLog(VisitorData);
+        public string AddNewVisitorLogById([FromBody]NewVisitorFormData VisitorData)
+        {
+            return visitor.AddNewVisitor(VisitorData);
         }
     }
 }

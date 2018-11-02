@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using Translations;
+using UI.Entities;
 
 namespace GuardService
 {
@@ -28,7 +30,7 @@ namespace GuardService
             catch (Exception ex)
             {
                 List<GuardData> error = new List<GuardData>();
-                error[0].Error = "Could not get Guard Logs! Please Contact Admin" + ex.StackTrace;
+                error[0].Error = true;
                 return error;
             }
         }
@@ -56,7 +58,7 @@ namespace GuardService
             catch (Exception ex)
             {
                 GuardData error = new GuardData();
-                error.Error = "Internal Error: GetGuardData" + ex.StackTrace;
+                error.Error = true;
                 allLogs.Add(error);
             }
         }
@@ -76,7 +78,7 @@ namespace GuardService
             catch (Exception ex)
             {
                 List<GuardData> error = new List<GuardData>();
-                error[0].Error = "Could not get Guard Logs! Please Contact Admin" + ex.StackTrace;
+                error[0].Error = true;
                 return error;
             }
         }
@@ -107,7 +109,7 @@ namespace GuardService
             catch (Exception ex)
             {
                 GuardData error = new GuardData();
-                error.Error = "Internal Error: GetGuardDataByName" + ex.StackTrace;
+                error.Error = true;
                 allLogs.Add(error);
             }
         }
@@ -133,11 +135,11 @@ namespace GuardService
             catch (Exception ex)
             {
                 List<GuardData> error = new List<GuardData>();
-                error[0].Error = "Could not get Guard Logs! Please Contact Admin" + ex.StackTrace;
+                error[0].Error = true;
                 return error;
             }
         }
-        public List<Guard> GetUniqueGuards()
+        public List<GuardsData> GetUniqueGuards()
         {
             try
             {
@@ -165,16 +167,18 @@ namespace GuardService
                     uniqueGuard.MedicalSpecification = entry.MedicalSpecification;
                     AllGuards.Add(uniqueGuard);
                 }
-                return AllGuards;
+                ToGuardsData toGuardsData = new ToGuardsData();
+                List<GuardsData> TranslatedData = toGuardsData.TranslateToGuardsDataList(AllGuards);
+                return TranslatedData;
             }
             catch (Exception ex)
             {
-                List<Guard> error = new List<Guard>();
-                error[0].GuardId = "Could not get Guard Logs! Please Contact Admin" + ex.StackTrace;
-                return error;
+                List<GuardsData> TranslatedData = new List<GuardsData>();
+                TranslatedData[0].Error = true;
+                return TranslatedData;
             }
         }
-        public List<Guard> GetUniqueGuardsByName(string searchInput)
+        public List<GuardsData> GetUniqueGuardsByName(string searchInput)
         {
             try
             {
@@ -202,13 +206,15 @@ namespace GuardService
                     uniqueGuard.MedicalSpecification = entry.MedicalSpecification;
                     AllGuards.Add(uniqueGuard);
                 }
-                return AllGuards;
+                ToGuardsData toGuardsData = new ToGuardsData();
+                List<GuardsData> TranslatedData = toGuardsData.TranslateToGuardsDataList(AllGuards);
+                return TranslatedData;
             }
             catch (Exception ex)
             {
-                List<Guard> error = new List<Guard>();
-                error[0].GuardId = "Could not get Guard Logs! Please Contact Admin" + ex.StackTrace;
-                return error;
+                List<GuardsData> TranslatedData = new List<GuardsData>();
+                TranslatedData[0].Error = true;
+                return TranslatedData;
             }
         }
         public bool DeleteGuard(string GuardId)
@@ -291,11 +297,22 @@ namespace GuardService
                 return false;
             }
         }
-        public Guard GetGuardDetailsById(string GuardId)
+        public GuardsData GetGuardDetailsById(string GuardId)
         {
-            var entity = new DatabaseContext();
-            Guard GuardDetails = entity.Guard.Find(GuardId);
-            return GuardDetails;
+            try
+            {
+                var entity = new DatabaseContext();
+                Guard GuardDetails = entity.Guard.Find(GuardId);
+                ToGuardsData toGuardsData = new ToGuardsData();
+                GuardsData TranslatedData = toGuardsData.TranslateToGuardsData(GuardDetails);
+                return TranslatedData;
+            }
+            catch (Exception ex)
+            {
+                GuardsData TranslatedData = new GuardsData();
+                TranslatedData.Error = true;
+                return TranslatedData;
+            }
         }
         public string AddGuardLogAtLogin(string GuardId)
         {
@@ -310,7 +327,7 @@ namespace GuardService
                 entity.SaveChanges();
                 return "Logged Successfully";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return "Unable to Log Guard Activity";
             }
@@ -321,13 +338,13 @@ namespace GuardService
             {
                 var entity = new DatabaseContext();
                 string time = "00:00:00.0000000";
-                GuardLogs ExistingLog = entity.GuardLogs.Where(entry => entry.LogoutTime == Convert.ToDateTime(time).TimeOfDay && entry.GuardId==GuardId).FirstOrDefault();
+                GuardLogs ExistingLog = entity.GuardLogs.Where(entry => entry.LogoutTime == Convert.ToDateTime(time).TimeOfDay && entry.GuardId == GuardId).FirstOrDefault();
                 ExistingLog.LogoutTime = DateTime.Now.TimeOfDay;
                 ExistingLog.LogoutDate = DateTime.Today;
                 entity.SaveChanges();
                 return "Logged Successfully";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return "Unable to Log Guard Activity";
             }

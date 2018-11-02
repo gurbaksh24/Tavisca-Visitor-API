@@ -4,9 +4,10 @@ using DALCore.Models;
 using GuardService;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using UI.Entities;
 
 namespace DALCore.Controllers
-{ 
+{
     [ApiController]
     public class GuardController : Controller
     {
@@ -36,13 +37,13 @@ namespace DALCore.Controllers
         }
         [HttpGet]
         [Route("api/[controller]/AllGuards")]
-        public List<Guard> GetAllUniqueGuards()
+        public List<GuardsData> GetAllUniqueGuards()
         {
             return guard.GetUniqueGuards();
         }
         [HttpPut]
         [Route("api/[controller]/UniqueGuardByName")]
-        public List<Guard> GetGuardByName([FromBody]SearchFilter searchInput)
+        public List<GuardsData> GetGuardByName([FromBody]SearchFilter searchInput)
         {
             return guard.GetUniqueGuardsByName(searchInput.UserInput);
         }
@@ -66,7 +67,7 @@ namespace DALCore.Controllers
         }
         [HttpPut]
         [Route("api/[controller]/GuardById")]
-        public Guard GetGuardById([FromBody]SearchFilter userId)
+        public GuardsData GetGuardById([FromBody]SearchFilter userId)
         {
             return guard.GetGuardDetailsById(userId.UserInput);
         }

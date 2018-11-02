@@ -19,6 +19,6 @@ namespace Core.Contracts
         public int VisitorId { get; set; }
         public string GuardId { get; set; }
         public string PurposeOfVisit { get; set; }
-        public string Error { get; set; }
+        public bool Error { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using DALCore.Models;
 using EmployeeService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UI.Entities;
 
 namespace DALCore.Controllers
 {
@@ -20,7 +21,7 @@ namespace DALCore.Controllers
         }
         [HttpGet]
         [Route("api/[controller]/AllEmployees")]
-        public List<Employees> GetAllEmployeeData()
+        public List<Employee> GetAllEmployeeData()
         {
             return employee.GetAllEmployees();
         }
@@ -44,21 +45,22 @@ namespace DALCore.Controllers
         }
         [HttpPut]
         [Route("api/[controller]/EmployeeById")]
-        public Employees GetEmployeeById([FromBody]SearchFilter userId)
+        public Employee GetEmployeeById([FromBody]SearchFilter userId)
         {
             return employee.GetEmployeeDetailsById(userId.UserInput);
         }
         [HttpPut]
         [Route("api/[controller]/EmployeeLogById")]
-        public List<EmployeeLogs> GetEmployeeLogsById([FromBody]SearchFilter userId)
+        public List<EmployeeData> GetEmployeeLogsById([FromBody]SearchFilter userId)
         {
             return employee.GetEmployeeLogsById(userId.UserInput);
         }
         [HttpGet]
         [Route("api/[controller]/EmployeeLogs")]
-        public List<EmployeeLogs> AllEmployeeLogs()
+        public List<EmployeeData> AllEmployeeLogs()
         {
             return employee.GetAllEmployeesLogs();
+            //return AutoMapper.Mapper.Map<List<UI.Entities.EmployeeLogs>>(employee.GetAllEmployeesLogs());
         }
         [HttpPut]
         [Route("api/[controller]/AddLog")]
@@ -68,19 +70,19 @@ namespace DALCore.Controllers
         }
         [HttpPut]
         [Route("api/[controller]/LogsByName")]
-        public List<EmployeeLogs> EmployeeLogByName([FromBody]SearchFilter userId)
+        public List<EmployeeData> EmployeeLogByName([FromBody]SearchFilter userId)
         {
             return employee.GetEmployeeLogByName(userId.UserInput);
         }
         [HttpPut]
         [Route("api/[controller]/LogsByDate")]
-        public List<EmployeeLogs> EmployeeLogsByDate([FromBody]DateAndTime UserInput)
+        public List<EmployeeData> EmployeeLogsByDate([FromBody]DateAndTime UserInput)
         {
             return employee.GetEmployeeLogsByDate(UserInput.fromDate, UserInput.toDate, UserInput.fromTime, UserInput.toTime);
         }
         [HttpPut]
         [Route("api/[controller]/LogsByDateAndName")]
-        public List<EmployeeLogs> EmployeeLogsByDateAndName([FromBody]DateAndName UserInput)
+        public List<EmployeeData> EmployeeLogsByDateAndName([FromBody]DateAndName UserInput)
         {
             return employee.GetEmployeeLogsByNameAndDate(UserInput.nameOfVisitor, UserInput.fromDate, UserInput.toDate, UserInput.fromTime, UserInput.toTime);
         }

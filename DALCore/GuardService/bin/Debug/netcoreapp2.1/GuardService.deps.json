@@ -14,7 +14,9 @@
           "EPPlus.Core": "1.5.4",
           "System.Security.Cryptography.Algorithms": "4.3.1",
           "System.Security.Cryptography.ProtectedData": "4.5.0",
-          "System.Security.Cryptography.X509Certificates": "4.3.2"
+          "System.Security.Cryptography.X509Certificates": "4.3.2",
+          "Translations": "1.0.0",
+          "UI.Entities": "1.0.0"
         },
         "runtime": {
           "GuardService.dll": {}
@@ -1259,6 +1261,20 @@
         "runtime": {
           "Core.Contracts.dll": {}
         }
+      },
+      "Translations/1.0.0": {
+        "dependencies": {
+          "Core.Contracts": "1.0.0",
+          "UI.Entities": "1.0.0"
+        },
+        "runtime": {
+          "Translations.dll": {}
+        }
+      },
+      "UI.Entities/1.0.0": {
+        "runtime": {
+          "UI.Entities.dll": {}
+        }
       }
     }
   },
@@ -1600,7 +1616,7 @@
     "System.Data.Common/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OGX4ifHI67s/2KRrXGMmEjmszCptbhWS4BieBdiBPl/8pn0A1xPMx0Gn0dKK0zKtEaelYNh5M7M5lCZL0EA4eA==",
+      "sha512": "sha512-lm6E3T5u7BOuEH0u18JpbJHxBfOJPuCyl4Kg1RH10ktYLp5uEEE1xKrHW56/We4SnZpGAuCc9N0MJpSDhTHZGQ==",
       "path": "system.data.common/4.3.0",
       "hashPath": "system.data.common.4.3.0.nupkg.sha512"
     },
@@ -2039,6 +2055,16 @@
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
     },
     "Core.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Translations/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UI.Entities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

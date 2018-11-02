@@ -14,12 +14,12 @@ namespace Core.Contracts
         public string Gender { get; set; }
         public string PrimaryContactNumber { get; set; }
         public string MedicalSpecification { get; set; }
-        public int SerialNumber { get; set; } 
+        public int SerialNumber { get; set; }
         public TimeSpan LoginTime { get; set; }
         public TimeSpan LogoutTime { get; set; }
         public DateTime LoginDate { get; set; }
         public DateTime LogoutDate { get; set; }
-        public string Error { get; set; }
+        public bool Error { get; set; }
 
     }
 }

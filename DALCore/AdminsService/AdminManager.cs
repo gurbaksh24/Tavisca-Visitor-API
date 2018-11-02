@@ -7,17 +7,12 @@ using System;
 using System.Collections.Generic;
 using VisitorService;
 using System.Linq;
-using Microsoft.Extensions.Options;
+using UI.Entities;
 
 namespace AdminsService
 {
     public class AdminManager : IAdmin
     {
-        private  AppSetting  _appsettings { get; set; }
-        public AdminManager(IOptions<AppSetting> appSettings)
-        {
-            _appsettings = appSettings.Value;
-        }
         public List<AllLogs> GetAllLogs()
         {
             try
@@ -30,7 +25,7 @@ namespace AdminsService
                 VisitorManager Visitor = new VisitorManager();
                 List<GuardData> GuardData = Guard.GetAllGuardsFromLog();
                 List<VisitorsData> VisitorData = Visitor.GetAllVisitorsFromLog();
-                List<EmployeeLogs> EmployeeData = Employee.GetAllEmployeesLogs();
+                List<EmployeeData> EmployeeData = Employee.GetAllEmployeesLogs();
                 LogByCategory = GuardLogsToAllLogs(GuardData);
                 AllLogs.AddRange(LogByCategory);
                 LogByCategory.Clear();
@@ -42,7 +37,7 @@ namespace AdminsService
                 AllLogs.OrderByDescending(entry => entry.InTime);
                 return AllLogs;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Could not get all Logs! Please Contact Admin" + ex.StackTrace);
             }
@@ -62,12 +57,12 @@ namespace AdminsService
                     GuardLogs.OutDate = entry.LogoutDate;
                     GuardLogs.OutTime = entry.LogoutTime;
                     GuardLogs.Name = entry.GuardName;
-                    GuardLogs.IndateInTime =  entry.LoginDate + entry.LoginTime;
+                    GuardLogs.IndateInTime = entry.LoginDate + entry.LoginTime;
                     GuardLog.Add(GuardLogs);
                 }
-                return GuardLog.OrderBy(entry=>entry.InDate).ToList<AllLogs>();
+                return GuardLog.OrderBy(entry => entry.InDate).ToList<AllLogs>();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Could not get Guard Logs! Please Contact Admin" + ex.StackTrace);
             }
@@ -97,7 +92,7 @@ namespace AdminsService
                 throw new Exception("Could not get Visitors Logs! Please Contact Admin" + ex.StackTrace);
             }
         }
-        public List<AllLogs> EmployeeLogsToAllLogs(List<EmployeeLogs> EmployeeData)
+        public List<AllLogs> EmployeeLogsToAllLogs(List<EmployeeData> EmployeeData)
         {
             try
             {
@@ -121,7 +116,7 @@ namespace AdminsService
                 }
                 return EmployeeLogs.OrderBy(entry => entry.InDate).ToList<AllLogs>();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Could not get Visitors Logs! Please Contact Admin" + ex.StackTrace);
             }

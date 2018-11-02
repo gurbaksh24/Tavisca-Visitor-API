@@ -4,6 +4,7 @@ using DALCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UI.Entities;
 
 namespace AdminsService
 {
@@ -12,6 +13,6 @@ namespace AdminsService
         List<AllLogs> GetAllLogs();
         List<AllLogs> GuardLogsToAllLogs(List<GuardData> GuardData);
         List<AllLogs> VisitorsLogsToAllLogs(List<VisitorsData> VisitorData);
-        List<AllLogs> EmployeeLogsToAllLogs(List<EmployeeLogs> EmployeeData);
+        List<AllLogs> EmployeeLogsToAllLogs(List<EmployeeData> EmployeeData);
     }
 }

@@ -12,8 +12,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Contracts\Core.Contracts.csproj" />
+    <ProjectReference Include="..\EmployeeData\UI.Entities.csproj" />
     <ProjectReference Include="..\EmployeeService\EmployeeService.csproj" />
     <ProjectReference Include="..\GuardService\GuardService.csproj" />
+    <ProjectReference Include="..\Translations\Translations.csproj" />
     <ProjectReference Include="..\VisitorService\VisitorService.csproj" />
   </ItemGroup>
 
