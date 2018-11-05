@@ -14,8 +14,8 @@ namespace FaceService
         {
             try
             {
-                string accessKeyId = "AKIAJM4TC3NLKAVPLCFQ";
-                string secretAccessKey = "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";
+                string accessKeyId = "";
+                string secretAccessKey = "";
                 BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(accessKeyId, secretAccessKey);
                 AmazonRekognitionClient amazonRekognitionClient = new AmazonRekognitionClient(basicAWSCredentials, RegionEndpoint.APSouth1);
                 var response = await amazonRekognitionClient.SearchFacesByImageAsync(new SearchFacesByImageRequest
@@ -51,8 +51,8 @@ namespace FaceService
         {
             try
             {
-                string accessKeyId = "AKIAJM4TC3NLKAVPLCFQ";
-                string secretAccessKey = "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";
+                string accessKeyId = "";
+                string secretAccessKey = "";
                 BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(accessKeyId, secretAccessKey);
                 AmazonRekognitionClient amazonRekognitionClient = new AmazonRekognitionClient(basicAWSCredentials, RegionEndpoint.APSouth1);
                 var response = await amazonRekognitionClient.IndexFacesAsync(new IndexFacesRequest
