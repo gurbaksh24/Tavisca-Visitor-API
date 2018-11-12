@@ -21,7 +21,7 @@ namespace VisitorService
             try
             {
                 ClearList();
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<VisitorsLogs> visitorLogsList = entity.VisitorsLogs.ToList<VisitorsLogs>();
                 foreach (var entry in visitorLogsList)
                 {
@@ -31,14 +31,16 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Visitors From Log. Please try again" + ex.StackTrace);
+                List<VisitorsData> error = new List<VisitorsData>();
+                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                return error;
             }
         }
         public void GetVisitorData(VisitorsLogs visitor)
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 Visitors visitorData = entity.Visitors.Find(visitor.VisitorId);
                 VisitorsData entry = new VisitorsData();
                 entry.NameOfVisitor = visitorData.NameOfVisitor;
@@ -57,7 +59,9 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Internal Exception: GetVisitorData" + ex.StackTrace);
+                VisitorsData error = new VisitorsData();
+                error.Error = "Internal Exception: GetVisitorData" + ex.StackTrace;
+                AllLogs.Add(error);
             }
         }
         public List<VisitorsData> GetVisitorsLogByName(string searchInput)
@@ -65,7 +69,7 @@ namespace VisitorService
             try
             {
                 ClearList();
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<Visitors> visitorLogsList = entity.Visitors.Where(entry => entry.NameOfVisitor == searchInput).ToList<Visitors>();
                 foreach (var entry in visitorLogsList)
                 {
@@ -75,14 +79,16 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Visitors From Log. Please try again" + ex.StackTrace);
+                List<VisitorsData> error = new List<VisitorsData>();
+                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                return error;
             }
         }
         public void GetVisitorDataByName(Visitors visitor)
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<VisitorsLogs> visitorData = entity.VisitorsLogs.Where(entry => entry.VisitorId == visitor.VisitorId).ToList<VisitorsLogs>();
                 foreach (var result in visitorData)
                 {
@@ -104,7 +110,9 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Internal Exception: GetVisitorDataByName" + ex.StackTrace);
+                VisitorsData error = new VisitorsData();
+                error.Error = "Internal Exception: GetVisitorDataByName" + ex.StackTrace;
+                AllLogs.Add(error);
             }
         }
         public List<VisitorsData> GetVisitorsLogByMeetingPerson(string whomToMeet)
@@ -112,7 +120,7 @@ namespace VisitorService
             try
             {
                 ClearList();
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<VisitorsLogs> visitorLogsList = entity.VisitorsLogs.Where(entry => entry.WhomToMeet == whomToMeet).ToList<VisitorsLogs>();
                 foreach (var entry in visitorLogsList)
                 {
@@ -122,14 +130,16 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Visitors From Log. Please try again" + ex.StackTrace);
+                List<VisitorsData> error = new List<VisitorsData>();
+                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                return error;
             }
         }
         public void GetVisitorDataByMeetingPerson(VisitorsLogs visitor, string searchInput)
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 Visitors visitorData = entity.Visitors.Where(row => row.VisitorId == visitor.VisitorId).FirstOrDefault();                
                     VisitorsData entry = new VisitorsData();
                     entry.NameOfVisitor = visitorData.NameOfVisitor;
@@ -148,7 +158,9 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Internal Exception: GetVisitorDataByMeetingPerson" + ex.StackTrace);
+                VisitorsData error = new VisitorsData();
+                error.Error = "Internal Exception: GetVisitorDataByMeetingPerson" + ex.StackTrace;
+                AllLogs.Add(error);
             }
         }
         public List<VisitorsData> GetVisitorLogByDate(string fromDate, string toDate, string fromTime, string toTime)
@@ -161,8 +173,8 @@ namespace VisitorService
                     fromTime = "00:00:00";
                     toTime = "23:59:59";
                 }
-                var entity = new VisitorsDatabaseContext();
-                List<VisitorsLogs> visitorLogsList = entity.VisitorsLogs.FromSql("select * from VisitorsLogs where DateOfVisit between @fromDate And @toDate and TimeIn >= @fromTime and TimeOut <= @toTime", new SqlParameter("@fromDate", fromDate), new SqlParameter("@toDate", toDate), new SqlParameter("@fromTime", fromTime), new SqlParameter("@toTime", toTime)).ToList<VisitorsLogs>();
+                var entity = new DatabaseContext();
+                List<VisitorsLogs> visitorLogsList = entity.VisitorsLogs.Where(entry =>entry.DateOfVisit >= Convert.ToDateTime(fromDate).Date && entry.DateOfVisit <= Convert.ToDateTime(toDate).Date && entry.TimeIn >= Convert.ToDateTime(fromTime).TimeOfDay && entry.TimeIn <= Convert.ToDateTime(toTime).TimeOfDay).ToList<VisitorsLogs>();
                 foreach (var entry in visitorLogsList)
                 {
                     GetVisitorData(entry);
@@ -172,7 +184,9 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Visitors From Log. Please try again" + ex.StackTrace);
+                List<VisitorsData> error = new List<VisitorsData>();
+                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                return error;
             }
         }
         public List<VisitorsData> GetVisitorLogByPurposeOfVisitor(string searchInput)
@@ -180,7 +194,7 @@ namespace VisitorService
             try
             {
                 ClearList();
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<VisitorsLogs> visitorLogsList = entity.VisitorsLogs.Where(entry => entry.PurposeOfVisit == searchInput).ToList<VisitorsLogs>();
                 foreach (var entry in visitorLogsList)
                 {
@@ -190,7 +204,9 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Visitors From Log. Please try again" + ex.StackTrace);
+                List<VisitorsData> error = new List<VisitorsData>();
+                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                return error;
             }
         }
         public List<VisitorsData> GetVisitorLogByNameAndDate(string nameOfVisitor, string fromDate, string toDate, string fromTime, string toTime)
@@ -204,7 +220,9 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Visitors From Log. Please try again" + ex.StackTrace);
+                List<VisitorsData> error = new List<VisitorsData>();
+                error[0].Error = "Could not get Visitors From Log. Please try again" + ex.StackTrace;
+                return error;
             }
         }
 
@@ -214,7 +232,7 @@ namespace VisitorService
             try
             {
                 ClearList();
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<Visitors> visitorsList = entity.Visitors.ToList<Visitors>();
                 foreach (var entry in visitorsList)
                 {
@@ -229,7 +247,9 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Visitors. Please try again" + ex.StackTrace);
+                List<Visitors> error = new List<Visitors>();
+                error[0].GovtIdProof = "Could not get Visitors. Please try again" + ex.StackTrace;
+                return error;
             }
         }
         public List<Visitors> GetUniqueVisitorsByName(string searchInput)
@@ -237,7 +257,7 @@ namespace VisitorService
             try
             {
                 ClearList();
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<Visitors> visitorsList = entity.Visitors.Where(entry => entry.NameOfVisitor == searchInput).ToList<Visitors>();
                 foreach (var entry in visitorsList)
                 {
@@ -252,18 +272,20 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Visitors. Please try again" + ex.StackTrace);
+                List<Visitors> error = new List<Visitors>();
+                error[0].GovtIdProof = "Could not get Visitors. Please try again" + ex.StackTrace;
+                return error;
             }
         }
         public string AddNewVisitor(NewVisitorFormData newVisitorData)
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 Visitors NewVisitor = new Visitors();
                 NewVisitor.NameOfVisitor = newVisitorData.nameOfVisitor;
                 NewVisitor.Contact = newVisitorData.contactNo;
-                NewVisitor.VisitorImage = "bucketadress/id"; // Call add new face from here, leaving for now
+                NewVisitor.VisitorImage = "bucketadress/id";
                 NewVisitor.GovtIdProof = newVisitorData.govtIdProof;
                 entity.Visitors.Add(NewVisitor);
                 entity.SaveChanges();
@@ -282,7 +304,7 @@ namespace VisitorService
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<Visitors> visitorEntry = entity.Visitors.Where(entry => entry.NameOfVisitor == VisitorData.nameOfVisitor).ToList<Visitors>();
                 List<Employees> empEntry = entity.Employees.Where(entry => entry.EmployeeName == VisitorData.whomToMeet).ToList<Employees>();
                 VisitorsLogs newLog = new VisitorsLogs();
@@ -305,9 +327,8 @@ namespace VisitorService
         public List<MatchingSubstring> AllMatchingEmployeeNames(string userInput)
         {
             List<MatchingSubstring> MatchingResults = new List<MatchingSubstring>();
-            var entity = new VisitorsDatabaseContext();
-            userInput = "%" + userInput + "%";
-            List<Employees> employeesList = entity.Employees.FromSql("select * from Employees where EmployeeName Like @searchInput", new SqlParameter("@searchInput", userInput)).ToList<Employees>();
+            var entity = new DatabaseContext();
+            List<Employees> employeesList = entity.Employees.Where(entry => entry.EmployeeName.Contains(userInput)).ToList<Employees>();
             foreach(var Entry in employeesList)
             {
                 MatchingSubstring name = new MatchingSubstring();
@@ -326,14 +347,14 @@ namespace VisitorService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not update password. Please try again" + ex.StackTrace);
+                return 404;
             }
         }
         public string GetVisitorNameById(int Id)
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 Visitors Visitor = entity.Visitors.Where(entry => entry.VisitorId == Id).FirstOrDefault();
                 return Visitor.NameOfVisitor;
             }
@@ -346,7 +367,7 @@ namespace VisitorService
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 VisitorsLogs ExistingLog = entity.VisitorsLogs.Where(entry => entry.VisitorId == Id).FirstOrDefault();
                 ExistingLog.TimeOut = DateTime.Now.TimeOfDay;
                 entity.SaveChanges();

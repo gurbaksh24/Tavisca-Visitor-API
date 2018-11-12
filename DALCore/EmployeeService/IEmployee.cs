@@ -8,7 +8,7 @@ namespace EmployeeService
     public interface IEmployee
     {
         List<Employees> GetAllEmployees();
-        void EditEmployee(Employees employee);
+        string EditEmployee(Employees employee);
         bool AddNewEmployee(Employees employee);
         string GetEmployeeNameById(string UserId);
         List<EmployeeLogs> GetAllEmployeesLogs();
@@ -17,5 +17,6 @@ namespace EmployeeService
         List<EmployeeLogs> GetEmployeeLogsByDate(string fromDate, string toDate, string fromTime, string toTime);
         List<EmployeeLogs> GetEmployeeLogsByNameAndDate(string nameOfEmployee, string fromDate, string toDate, string fromTime, string toTime);
         Employees GetEmployeeDetailsById(string UserId);
+        string LogEmployeeExit(string EmplpyeeId);
     }
 }

@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DALCore.Models
 {
-    public partial class VisitorsDatabaseContext : DbContext
+    public partial class DatabaseContext : DbContext
     {
-        public VisitorsDatabaseContext()
+        public DatabaseContext()
         {
         }
 
-        public VisitorsDatabaseContext(DbContextOptions<VisitorsDatabaseContext> options)
+        public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
         {
         }

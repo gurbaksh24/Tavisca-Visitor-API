@@ -11,6 +11,7 @@ using DALCore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using FaceService;
+using AdminsService;
 
 namespace DALCore
 {
@@ -39,6 +40,7 @@ namespace DALCore
             services.AddTransient<IForgotPassword, ForgotPasswordManager>();
             services.AddTransient<IEmployee, EmployeeManager>();
             services.AddTransient<IFace, FaceManager>();
+            services.AddTransient<IAdmin, AdminManager>();
 
             //services.AddDbContext<VisitorsDatabaseContext>(options =>
             //                    options.UseSqlServer(Configuration.GetConnectionString("TaviscaVisitorDatabase")));

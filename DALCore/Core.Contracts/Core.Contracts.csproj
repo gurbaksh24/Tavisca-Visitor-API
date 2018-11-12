@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Models\AllLogs.cs" />
     <Compile Include="Models\DateAndName.cs" />
     <Compile Include="Models\DateAndTime.cs" />
     <Compile Include="Models\EmployeeLogs.cs" />
@@ -28,7 +29,7 @@
     <Compile Include="Models\UserId.cs" />
     <Compile Include="Models\Visitors.cs" />
     <Compile Include="Models\VisitorsData.cs" />
-    <Compile Include="Models\VisitorsDatabaseContext.cs" />
+    <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\VisitorsLogs.cs" />
   </ItemGroup>
 

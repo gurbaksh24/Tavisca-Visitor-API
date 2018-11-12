@@ -17,7 +17,7 @@ namespace GuardService
             try
             {
                 ClearList();
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<GuardLogs> guardLogsList = entity.GuardLogs.ToList<GuardLogs>();
                 foreach (var entry in guardLogsList)
                 {
@@ -27,14 +27,16 @@ namespace GuardService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Guard Logs! Please Contact Admin" + ex.StackTrace);
+                List<GuardData> error = new List<GuardData>();
+                error[0].Error = "Could not get Guard Logs! Please Contact Admin" + ex.StackTrace;
+                return error;
             }
         }
         public static void GetGuardData(GuardLogs guard)
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 Guard guardData = entity.Guard.Find(guard.GuardId);
                 GuardData guardEntry = new GuardData();
                 guardEntry.GuardId = guard.GuardId;
@@ -53,7 +55,9 @@ namespace GuardService
             }
             catch (Exception ex)
             {
-                throw new Exception("Internal Error: GetGuardData" + ex.StackTrace);
+                GuardData error = new GuardData();
+                error.Error = "Internal Error: GetGuardData" + ex.StackTrace;
+                allLogs.Add(error);
             }
         }
         public List<GuardData> GetGuardsLogByName(string searchInput)
@@ -61,7 +65,7 @@ namespace GuardService
             try
             {
                 ClearList();
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<Guard> guardLogsList = entity.Guard.Where(entry => entry.GuardName == searchInput).ToList<Guard>();
                 foreach (var entry in guardLogsList)
                 {
@@ -71,14 +75,16 @@ namespace GuardService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Guard Logs! Please Contact Admin" + ex.StackTrace);
+                List<GuardData> error = new List<GuardData>();
+                error[0].Error = "Could not get Guard Logs! Please Contact Admin" + ex.StackTrace;
+                return error;
             }
         }
         public void GetGuardDataByName(Guard guard)
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<GuardLogs> guardData = entity.GuardLogs.Where(entry => entry.GuardId == guard.GuardId).ToList<GuardLogs>();
                 foreach (var result in guardData)
                 {
@@ -100,7 +106,9 @@ namespace GuardService
             }
             catch (Exception ex)
             {
-                throw new Exception("Internal Error: GetGuardDataByName" + ex.StackTrace);
+                GuardData error = new GuardData();
+                error.Error = "Internal Error: GetGuardDataByName" + ex.StackTrace;
+                allLogs.Add(error);
             }
         }
         public List<GuardData> GetGuardLogByDateAndTime(string fromDate, string toDate, string fromTime, string toTime)
@@ -113,10 +121,8 @@ namespace GuardService
                     fromTime = "00:00:00";
                     toTime = "23:59:59";
                 }
-                var entity = new VisitorsDatabaseContext();
-                List<GuardLogs> visitorLogsList =
-                    entity.GuardLogs.FromSql("select * from GuardLogs where LoginDate between @fromDate And @toDate and LogoutDate between @fromDate And @toDate and LoginTime >= @fromTime and LogoutTime <= @toTime", new SqlParameter("@fromDate", fromDate), new SqlParameter("@toDate", toDate), new SqlParameter("@fromTime", fromTime), new SqlParameter("@toTime", toTime)).ToList<GuardLogs>();
-
+                var entity = new DatabaseContext();
+                List<GuardLogs> visitorLogsList = entity.GuardLogs.Where(entry => entry.LoginDate >= Convert.ToDateTime(fromDate).Date && entry.LoginDate <= Convert.ToDateTime(toDate).Date && entry.LoginTime >= Convert.ToDateTime(fromTime).TimeOfDay && entry.LoginTime <= Convert.ToDateTime(toTime).TimeOfDay).ToList<GuardLogs>();
                 foreach (var entry in visitorLogsList)
                 {
                     GetGuardData(entry);
@@ -126,7 +132,9 @@ namespace GuardService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Guards From Log. Please try again" + ex.StackTrace);
+                List<GuardData> error = new List<GuardData>();
+                error[0].Error = "Could not get Guard Logs! Please Contact Admin" + ex.StackTrace;
+                return error;
             }
         }
         public List<Guard> GetUniqueGuards()
@@ -134,7 +142,7 @@ namespace GuardService
             try
             {
                 ClearList();
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<Guard> GuardsList = entity.Guard.ToList<Guard>();
                 foreach (var entry in GuardsList)
                 {
@@ -161,7 +169,9 @@ namespace GuardService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Visitors. Please try again" + ex.StackTrace);
+                List<Guard> error = new List<Guard>();
+                error[0].GuardId = "Could not get Guard Logs! Please Contact Admin" + ex.StackTrace;
+                return error;
             }
         }
         public List<Guard> GetUniqueGuardsByName(string searchInput)
@@ -169,7 +179,7 @@ namespace GuardService
             try
             {
                 ClearList();
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 List<Guard> GuardsList = entity.Guard.Where(entry => entry.GuardName == searchInput).ToList<Guard>();
                 foreach (var entry in GuardsList)
                 {
@@ -196,14 +206,16 @@ namespace GuardService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not get Visitors. Please try again" + ex.StackTrace);
+                List<Guard> error = new List<Guard>();
+                error[0].GuardId = "Could not get Guard Logs! Please Contact Admin" + ex.StackTrace;
+                return error;
             }
         }
         public bool DeleteGuard(string GuardId)
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 var GuardDetails = entity.Guard.Find(GuardId);
                 GuardDetails.GuardStatus = "INACTIVE";
                 entity.SaveChanges();
@@ -218,7 +230,7 @@ namespace GuardService
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 if (NewGuard.SecondaryContactNumber == null)
                     NewGuard.SecondaryContactNumber = "";
                 if (NewGuard.MedicalSpecification == null)
@@ -249,14 +261,14 @@ namespace GuardService
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not Add Guard. Please try again" + ex.StackTrace);
+                return false;
             }
         }
         public bool EditExistingGuard(Guard details)
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 var GuardDetails = entity.Guard.Find(details.GuardId);
                 GuardDetails.DateOfJoining = details.DateOfJoining;
                 GuardDetails.DateOfResignation = details.DateOfResignation;
@@ -281,7 +293,7 @@ namespace GuardService
         }
         public Guard GetGuardDetailsById(string GuardId)
         {
-            var entity = new VisitorsDatabaseContext();
+            var entity = new DatabaseContext();
             Guard GuardDetails = entity.Guard.Find(GuardId);
             return GuardDetails;
         }
@@ -289,7 +301,7 @@ namespace GuardService
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 GuardLogs NewLog = new GuardLogs();
                 NewLog.GuardId = GuardId;
                 NewLog.LoginDate = DateTime.Today;
@@ -307,7 +319,7 @@ namespace GuardService
         {
             try
             {
-                var entity = new VisitorsDatabaseContext();
+                var entity = new DatabaseContext();
                 string time = "00:00:00.0000000";
                 GuardLogs ExistingLog = entity.GuardLogs.Where(entry => entry.LogoutTime == Convert.ToDateTime(time).TimeOfDay && entry.GuardId==GuardId).FirstOrDefault();
                 ExistingLog.LogoutTime = DateTime.Now.TimeOfDay;
