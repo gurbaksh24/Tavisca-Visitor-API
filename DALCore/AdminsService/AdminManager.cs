@@ -57,7 +57,7 @@ namespace AdminsService
                     AllLogs GuardLogs = new AllLogs();
                     GuardLogs.Category = "Guard";
                     GuardLogs.ContactNo = entry.PrimaryContactNumber;
-                    GuardLogs.InDate = entry.LoginDate;
+                    GuardLogs.InDate = entry.LoginDate.ToShortDateString();
                     GuardLogs.InTime = entry.LoginTime;
                     GuardLogs.OutDate = entry.LogoutDate;
                     GuardLogs.OutTime = entry.LogoutTime;
@@ -82,7 +82,7 @@ namespace AdminsService
                     AllLogs VisitorsLogEntry = new AllLogs();
                     VisitorsLogEntry.Category = "Visitor";
                     VisitorsLogEntry.ContactNo = entry.Contact;
-                    VisitorsLogEntry.InDate = Convert.ToDateTime(entry.DateOfVisit);
+                    VisitorsLogEntry.InDate = Convert.ToDateTime(entry.DateOfVisit).ToShortDateString();
                     VisitorsLogEntry.InTime = Convert.ToDateTime(entry.TimeIn).TimeOfDay;
                     VisitorsLogEntry.OutDate = Convert.ToDateTime(entry.DateOfVisit);
                     VisitorsLogEntry.OutTime = Convert.ToDateTime(entry.TimeOut).TimeOfDay;
@@ -111,7 +111,7 @@ namespace AdminsService
                     EmployeeManager Employee = new EmployeeManager();
                     Employees row = entity.Employees.Where(data => data.EmployeeId == entry.EmployeeId).FirstOrDefault();
                     EmployeeLogEntry.ContactNo = row.EmergencyContactNumber;
-                    EmployeeLogEntry.InDate = entry.DateOfVisit;
+                    EmployeeLogEntry.InDate = entry.DateOfVisit.ToShortDateString();
                     EmployeeLogEntry.InTime = entry.TimeOfEntry;
                     EmployeeLogEntry.OutDate = entry.DateOfExit;
                     EmployeeLogEntry.OutTime = entry.TimeOfExit;

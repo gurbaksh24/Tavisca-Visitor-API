@@ -35,7 +35,10 @@ namespace FaceService
                 if (response.FaceMatches.Any())
                 {
                     int imageId = Convert.ToInt32(response.FaceMatches[0].Face.ExternalImageId);
-                    return GetVisitorNameById(imageId);
+                    if (collectionName.Equals("visitors"))
+                        return GetVisitorNameById(imageId);
+                    else
+                        return GetEmployeeNameById(imageId);
                 }
 
                 else
@@ -82,6 +85,20 @@ namespace FaceService
                 var entity = new DatabaseContext();
                 Visitors Visitor = entity.Visitors.Where(entry => entry.VisitorId == Id).FirstOrDefault();
                 return Visitor.NameOfVisitor + ":" + Id;
+            }
+            catch (Exception ex)
+            {
+                return "Unable to fetch name";
+            }
+        }
+
+        public string GetEmployeeNameById(int Id)
+        {
+            try
+            {
+                var entity = new DatabaseContext();
+                Employees employees = entity.Employees.Where(entry => entry.EmployeeId == Id.ToString()).FirstOrDefault();
+                return employees.EmployeeName + ":" + Id;
             }
             catch (Exception ex)
             {

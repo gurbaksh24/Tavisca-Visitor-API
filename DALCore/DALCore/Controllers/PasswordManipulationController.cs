@@ -19,9 +19,9 @@ namespace DALCore.Controllers
         }
         [HttpPut]
         [Route("api/[controller]/ForgotPassword_Otp")]
-        public void ForgotPasswordOtp(SearchFilter userId)
+        public bool ForgotPasswordOtp(SearchFilter userId)
         {
-            user.ForgotPassword_SendAndUpdateOtp(userId.UserInput);
+            return user.ForgotPassword_SendAndUpdateOtp(userId.UserInput);
         }
         [HttpPut]
         [Route("api/[controller]/ForgotPassword_Validation")]

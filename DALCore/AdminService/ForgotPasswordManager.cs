@@ -24,7 +24,7 @@ namespace UserService
 {
     public class ForgotPasswordManager : IForgotPassword
     {
-        public void ForgotPassword_SendAndUpdateOtp(string userId)
+        public bool ForgotPassword_SendAndUpdateOtp(string userId)
         {
             try
             {
@@ -34,10 +34,11 @@ namespace UserService
                 SMSGeneration smsGeneration = new SMSGeneration();
                 int otp = smsGeneration.SMS(Convert.ToInt64(loginCredentials.ContactNo));
                 sqlDB.UpdateOTP(userId, otp);
+                return true;
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not update password. Please try again" + ex.StackTrace);
+                return false;
             }
         }
         public bool ForgotPassword_CheckOtpEnteredByUser(string userId, int otpEnteredByUser)
@@ -56,7 +57,7 @@ namespace UserService
                 throw new Exception("Could not update password. Please try again" + ex.StackTrace);
             }
         }
-        public void SetNewPassword(string userId, string newPassword)
+        public bool SetNewPassword(string userId, string newPassword)
         {
             try
             {
@@ -81,10 +82,11 @@ namespace UserService
                 //entity.Database.ExecuteSqlCommand("UPDATE LoginCredentials SET Password  = @newPassword , SavingTime =@savingTime WHERE UserId = @Id", new SqlParameter("@newPassword", hash), new SqlParameter("@savingTime", time), new SqlParameter("@Id", userId));
                 UserDatabase sqlDB = new UserDatabase();
                 sqlDB.UpdatePassword(userId, hash, time);
+                return true;
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not update password. Please try again" + ex.StackTrace);
+                return false;
             }
         }
         /*async System.Threading.Tasks.Task UploadToS3Async()

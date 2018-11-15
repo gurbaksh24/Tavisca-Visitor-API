@@ -11,7 +11,7 @@ namespace Core.Contracts.Models
         public TimeSpan InTime { get; set; }
         public TimeSpan OutTime { get; set; }
         public string ContactNo { get; set; }
-        public DateTime InDate { get; set; }
+        public string InDate { get; set; }
         public DateTime OutDate { get; set; }
         public DateTime IndateInTime { get; set; }
     }
